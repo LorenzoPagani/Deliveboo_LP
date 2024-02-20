@@ -30,9 +30,9 @@ Route::middleware(['auth'])
         // - il percorso "/" diventa "admin/"
         // - il nome della rotta ->name("dashboard") diventa ->name("admin.dashboard")
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('dishes', [DishController::class]);
-        Route::resource('ingredients', [IngredientController::class]);
-        Route::resource('restaurants', [RestaurantController::class]);
+        Route::resource('dishes', DishController::class);
+        Route::resource('ingredients', IngredientController::class);
+        Route::resource('restaurants', RestaurantController::class);
     });
 
 require __DIR__ . '/auth.php';
