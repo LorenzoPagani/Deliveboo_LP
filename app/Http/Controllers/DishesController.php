@@ -11,7 +11,6 @@ class DishesController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
