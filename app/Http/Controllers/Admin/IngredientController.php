@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Ingredient;
+use App\Http\Requests\StoreIngredientRequest;
+use App\Http\Requests\UpdateIngredientRequest;
 
 class IngredientController extends Controller
 {
@@ -12,6 +14,7 @@ class IngredientController extends Controller
      */
     public function index()
     {
+        //
     }
 
     /**
@@ -25,7 +28,7 @@ class IngredientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreIngredientRequest $request)
     {
         //
     }
@@ -33,7 +36,7 @@ class IngredientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Ingredient $ingredient)
     {
         //
     }
@@ -41,7 +44,7 @@ class IngredientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Ingredient $ingredient)
     {
         //
     }
@@ -49,7 +52,7 @@ class IngredientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateIngredientRequest $request, Ingredient $ingredient)
     {
         //
     }
@@ -57,7 +60,7 @@ class IngredientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Ingredient $ingredient)
     {
         //
     }
