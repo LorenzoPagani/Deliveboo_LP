@@ -16,30 +16,34 @@ class DishSeeder extends Seeder
         $dishes = [
             [
                 'name' => 'margherita',
-                'price' => '6.00',
+                'price' => 6.0,
                 'description' => 'descrizione lunga',
-                'visible' => '1',
+                "restaurant_id" => 3,
+                'visible' => true,
             ],
             [
                 'name' => 'quattro stagioni',
-                'price' => '8.00',
+                'price' => 8.0,
+                "restaurant_id" => 2,
                 'description' => 'descrizione lunga',
-                'visible' => '1',
+                'visible' => true,
             ],
             [
                 'name' => 'capricciosa',
-                'price' => '7.50',
+                'price' => 7.5,
+                "restaurant_id" => 1,
                 'description' => 'descrizione lunga',
-                'visible' => '1',
+                'visible' => true,
             ],
         ];
 
         foreach ($dishes as $dish) {
-            $newDish =  new Dish ();
+            $newDish =  new Dish();
             $newDish->name = $dish["name"];
             $newDish->price = $dish["price"];
             $newDish->description = $dish["description"];
             $newDish->visible = $dish["visible"];
+            $newDish->restaurant_id = $dish["restaurant_id"];
             $newDish->save();
         }
     }

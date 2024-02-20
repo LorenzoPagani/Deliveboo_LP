@@ -15,10 +15,22 @@ class AllergenSeeder extends Seeder
     {
         $allergens = [
 
-            ['name' => 'Glutine'],
-            ['name' => 'Uova'],
-            ['name' => 'Frutta a guscio'],
-            ['name' => 'Latticini']
+            [
+                'name' => 'Glutine',
+                "piatto" => [1, 2, 3]
+            ],
+            [
+                'name' => 'Uova',
+                "piatto" => [2, 3]
+            ],
+            [
+                'name' => 'Frutta a guscio',
+                "piatto" => []
+            ],
+            [
+                'name' => 'Latticini',
+                "piatto" => [1, 2, 3]
+            ]
 
         ];
 
@@ -26,6 +38,9 @@ class AllergenSeeder extends Seeder
             $newAllergen =  new Allergen();
             $newAllergen->name = $allergen["name"];
             $newAllergen->save();
+            foreach ($allergen["piatto"] as $piatto) {
+                $newAllergen->dishes()->attach($piatto);
+            }
         }
     }
 }

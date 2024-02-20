@@ -16,10 +16,22 @@ class IngredientSeeder extends Seeder
     {
         $ingredients = [
 
-            ['name' => 'Pizza'],
-            ['name' => 'Pomodoro'],
-            ['name' => 'Funghi'],
-            ['name' => 'Prosciutto']
+            [
+                'name' => 'Pizza',
+                "piatto" => [1, 2, 3]
+            ],
+            [
+                'name' => 'Pomodoro',
+                "piatto" => [1, 2, 3]
+            ],
+            [
+                'name' => 'Funghi',
+                "piatto" => [2, 3]
+            ],
+            [
+                'name' => 'Prosciutto',
+                "piatto" => [2, 3]
+            ]
 
         ];
 
@@ -27,6 +39,9 @@ class IngredientSeeder extends Seeder
             $newIngredient =  new Ingredient();
             $newIngredient->name = $ingredient["name"];
             $newIngredient->save();
+            foreach ($ingredient["piatto"] as $piatto_id) {
+                $newIngredient->dishes()->attach($piatto_id);
+            }
         }
     }
 }

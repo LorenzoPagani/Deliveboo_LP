@@ -16,9 +16,11 @@ class TypeSeeder extends Seeder
         $categories = [
             [
                 'name' => 'pizzeria',
+                "ristorante" => [1, 2, 3],
             ],
             [
                 'name' => 'ristorante italiano',
+                "ristorante" => [1, 2, 3]
             ],
         ];
 
@@ -26,6 +28,9 @@ class TypeSeeder extends Seeder
             $newCategory = new Type();
             $newCategory->name = $category["name"];
             $newCategory->save();
+            foreach ($category["ristorante"] as $ristorante) {
+                $newCategory->restaurants()->attach($ristorante);
+            }
         }
     }
 }
