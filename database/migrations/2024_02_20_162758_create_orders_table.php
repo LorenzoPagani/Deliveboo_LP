@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->datetime("date");
-            $table->unsignedBigInteger("resturant_id");
+            $table->unsignedBigInteger("restaurant_id");
             $table->foreign("restaurant_id")->references("id")->on("restaurants")->onUpdate("cascade")->onDelete("cascade");
         });
     }
