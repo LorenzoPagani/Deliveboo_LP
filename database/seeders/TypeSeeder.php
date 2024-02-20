@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CategorySeeder extends Seeder
+class TypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,19 +16,15 @@ class CategorySeeder extends Seeder
         $categories = [
             [
                 'name' => 'pizzeria',
-                'description' => 'descrizione 1 ',
             ],
             [
                 'name' => 'ristorante italiano',
-                'description' => 'descrizione 2 ',
-            ], 
+            ],
         ];
 
         foreach ($categories as $category) {
-            $newCategory = new Category();
+            $newCategory = new Type();
             $newCategory->name = $category["name"];
-            $newCategory->description = $category["description"];
-            
             $newCategory->save();
         }
     }
