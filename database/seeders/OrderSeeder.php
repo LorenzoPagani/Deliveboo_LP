@@ -21,7 +21,7 @@ class OrderSeeder extends Seeder
             'date' => '2024-01-15',
             'date' => '2024-01-16',
             'date' => '2024-01-17',
-        
+
         ];
 
         foreach ($orders as $order) {

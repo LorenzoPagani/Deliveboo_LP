@@ -15,11 +15,11 @@ class AllergenSeeder extends Seeder
     {
         $allergens = [
 
-            'name' => 'Glutine',
-            'name' => 'Uova',
-            'name' => 'Frutta a guscio',
-            'name' => 'Latticini',
-        
+            ['name' => 'Glutine'],
+            ['name' => 'Uova'],
+            ['name' => 'Frutta a guscio'],
+            ['name' => 'Latticini']
+
         ];
 
         foreach ($allergens as $allergen) {

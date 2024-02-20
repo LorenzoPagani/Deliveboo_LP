@@ -16,11 +16,11 @@ class IngredientSeeder extends Seeder
     {
         $ingredients = [
 
-            'name' => 'Pizza',
-            'name' => 'Pomodoro',
-            'name' => 'Funghi',
-            'name' => 'Prosciutto',
-        
+            ['name' => 'Pizza'],
+            ['name' => 'Pomodoro'],
+            ['name' => 'Funghi'],
+            ['name' => 'Prosciutto']
+
         ];
 
         foreach ($ingredients as $ingredient) {
