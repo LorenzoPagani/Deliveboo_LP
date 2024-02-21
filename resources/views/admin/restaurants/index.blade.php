@@ -3,12 +3,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>All Restaurants</h1>
+                <h1>Your Restaurants</h1>
                 <a class="text-right" href="{{ route('admin.restaurants.create') }}">Add Restaurant</a>
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Restaurant Name</th>
+                            <th>Owner</th>
                             <th>Address</th>
                             <th>description</th>
                             <th>Actions</th>
@@ -18,6 +19,7 @@
                         @foreach ($restaurants as $restaurant)
                             <tr>
                                 <td>{{ $restaurant->name }}</td>
+                                <td>{{ $restaurant->user->name }}</td>
                                 <td>{{ $restaurant->address }}</td>
                                 <td>{{ $restaurant->description }}</td>
                                 <td>
