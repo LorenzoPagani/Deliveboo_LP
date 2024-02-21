@@ -20,20 +20,18 @@
             </div>
             <div class="form-group">
                 <label for="vat">Restaurant VAT number</label>
-                <input type="text" class="form-control" id="vat" name="vat"
-                    value="{{ $restaurant->vat }}">
+                <input type="text" class="form-control" id="vat" name="vat" value="{{ $restaurant->vat }}">
             </div>
-            {{-- <div class="form-group">
-                <label for="category_id">Restaurant categories</label>
-                <select class="form-control" id="category_id" name="category_id">
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}"
-                            {{ $category->id == $restaurant->category_id ? 'selected' : '' }}>
-                            {{ $category->name }}
+            <div class="form-group">
+                <label for="type">Restaurant categories</label>
+                <select multiple class="form-control" id="type" name="type[]">
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" {{ $type->id == $restaurant->type ? 'selected' : '' }}>
+                            {{ $type->name }}
                         </option>
                     @endforeach
                 </select>
-            </div> --}}
+            </div>
             <button type="submit" class="btn btn-primary">Edit</button>
         </form>
     </div>

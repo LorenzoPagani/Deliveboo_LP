@@ -23,14 +23,14 @@
                 <input type="text" class="form-control" id="vat" name="vat"
                     placeholder="Enter restaurant VAT number">
             </div>
-            {{-- <div class="form-group">
-                <label for="category_id">Restaurant categories</label>
-                <select class="form-control" id="category_id" name="category_id">
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+            <div class="form-group">
+                <label for="types">Restaurant categories</label>
+                <select multiple class="form-control" id="types" name="type[]">
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
                     @endforeach
                 </select>
-            </div> --}}
+            </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
