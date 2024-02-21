@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label for="type">Restaurant categories</label>
-                <select multiple class="form-control" id="type" name="type[]">
+                <select multiple class="form-control" id="type" name="types[]">
                     @foreach ($types as $type)
                         <option value="{{ $type->id }}" {{ $type->id == $restaurant->type ? 'selected' : '' }}>
                             {{ $type->name }}

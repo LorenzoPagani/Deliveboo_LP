@@ -38,9 +38,9 @@ class RestaurantController extends Controller
         $new_Restaurant = new Restaurant;
         $new_Restaurant->user_id = Auth::id();
         $new_Restaurant->fill($request->all());
-    
+
         $new_Restaurant->save();
-            if ($request->types) {
+        if ($request->types) {
             $new_Restaurant->types()->attach($request->types);
         }
 
@@ -70,9 +70,11 @@ class RestaurantController extends Controller
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
         $validated_data = $request->validated();
-
+        if (array_key_exists('types', $validated_data)) {
+            $restaurant->types()->sync($validated_data['types']);
+        }
         $restaurant->update($validated_data);
-        
+
 
 
         return redirect()->route('admin.restaurants.show', $restaurant->id);
