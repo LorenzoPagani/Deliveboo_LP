@@ -12,6 +12,8 @@
                             <th>Owner</th>
                             <th>Address</th>
                             <th>description</th>
+                            <th>Category</th>
+
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -22,6 +24,11 @@
                                 <td>{{ $restaurant->user->name }}</td>
                                 <td>{{ $restaurant->address }}</td>
                                 <td>{{ $restaurant->description }}</td>
+                                <td>
+                                    @foreach ($restaurant->types as $type)
+                                        {{ $type->name }}
+                                    @endforeach
+                                </td>
                                 <td>
                                     <a href="{{ route('admin.restaurants.show', $restaurant->id) }}"
                                         class="btn btn-default">View</a>

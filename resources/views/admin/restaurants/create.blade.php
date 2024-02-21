@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
                 <label for="types">Restaurant categories</label>
-                <select multiple class="form-control" id="types" name="type[]">
+                <select multiple class="form-control" id="types" name="types[]">
                     @foreach ($types as $type)
                         <option value="{{ $type->id }}">{{ $type->name }}</option>
                     @endforeach
