@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
@@ -23,7 +24,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.restaurants.create');
     }
 
     /**
@@ -31,7 +32,11 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        //
+        $new_Restaurant = new Restaurant;
+        $new_Restaurant->user_id = Auth::id();
+        $new_Restaurant->fill($request->all());
+        $new_Restaurant->save();
+        return redirect()->route('admin.restaurants.index');
     }
 
     /**
@@ -58,7 +63,6 @@ class RestaurantController extends Controller
         /*$data = $request->all();*/
 
         return redirect()->route('admin.restaurants.show', $restaurant->id);
-
     }
 
     /**
@@ -66,6 +70,7 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        $restaurant->delete();
+        return redirect()->route('admin.restaurants.index');
     }
 }
