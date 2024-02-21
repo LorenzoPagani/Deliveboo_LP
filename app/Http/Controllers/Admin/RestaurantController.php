@@ -61,7 +61,10 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-        /*$data = $request->all();*/
+        $validated_data = $request->validated();
+        
+        $restaurant->update($validated_data);
+
 
         return redirect()->route('admin.restaurants.show', $restaurant->id);
     }

@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <h1>Edit restaurant</h1>
-        <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" method="post">
+        <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -19,8 +19,8 @@
                     value="{{ $restaurant->description }}">
             </div>
             <div class="form-group">
-                <label for="vat_number">Restaurant VAT number</label>
-                <input type="text" class="form-control" id="vat_number" name="vat_number"
+                <label for="vat">Restaurant VAT number</label>
+                <input type="text" class="form-control" id="vat" name="vat"
                     value="{{ $restaurant->vat_number }}">
             </div>
             {{-- <div class="form-group">
