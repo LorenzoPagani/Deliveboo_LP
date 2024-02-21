@@ -23,7 +23,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        return view('admin.restaurant.create');
+        
     }
 
     /**
@@ -47,7 +47,7 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+        return view('admin.restaurant.edit', compact('restaurant'));
     }
 
     /**
@@ -55,7 +55,10 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        /*$data = $request->all();*/
+
+        return redirect()->route('admin.restaurants.show', $restaurant->id);
+
     }
 
     /**
