@@ -11,7 +11,7 @@ class UpdateRestaurantRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class UpdateRestaurantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+           'name' => 'required|min:2|max:50',
+           'address' => 'required|min:5|max:50',
+           'description' => 'required|min:5|max:100',
+           'vat' => 'required',
+           'user_id' => 'exists:users,id'
+
         ];
     }
 }
