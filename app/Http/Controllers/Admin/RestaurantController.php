@@ -23,7 +23,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        return view('admin.restaurant.create');
+        return view('admin.restaurants.create');
     }
 
     /**
@@ -31,7 +31,10 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        //
+        $new_Restaurant = new Restaurant;
+        $new_Restaurant->fill($request->all());
+        $new_Restaurant->save();
+        return redirect()->route('admin.restaurants.index');
     }
 
     /**
