@@ -23,7 +23,7 @@
                 <input type="text" class="form-control" id="vat_number" name="vat_number"
                     value="{{ $restaurant->vat_number }}">
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="category_id">Restaurant categories</label>
                 <select class="form-control" id="category_id" name="category_id">
                     @foreach ($categories as $category)
@@ -33,7 +33,7 @@
                         </option>
                     @endforeach
                 </select>
-            </div>
+            </div> --}}
             <button type="submit" class="btn btn-primary">Edit</button>
         </form>
     </div>
