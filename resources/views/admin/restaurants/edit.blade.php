@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label for="vat">Restaurant VAT number</label>
                 <input type="text" class="form-control" id="vat" name="vat"
-                    value="{{ $restaurant->vat_number }}">
+                    value="{{ $restaurant->vat }}">
             </div>
             {{-- <div class="form-group">
                 <label for="category_id">Restaurant categories</label>
