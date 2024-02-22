@@ -18,6 +18,7 @@ return new class extends Migration
             $table->char("name", 50);
             $table->tinyText("picture");
             $table->text("description");
+            $table->text("ingredients");
             $table->decimal("price", 5, 2);
             $table->boolean("visible");
         });
