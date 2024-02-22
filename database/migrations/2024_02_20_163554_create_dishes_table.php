@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger("restaurant_id");
-            $table->varchar("name", 50);
+            $table->char("name", 50);
             $table->tinyText("picture");
             $table->text("description");
             $table->decimal("price", 5, 2);
