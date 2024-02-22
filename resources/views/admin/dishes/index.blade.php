@@ -10,6 +10,7 @@
                         <tr>
                             <th>Dish Name</th>
                             <th>Price</th>
+                            <th>Picture</th>
                             <th>description</th>
                             <th>Actions</th>
                         </tr>
@@ -19,6 +20,7 @@
                             <tr>
                                 <td>{{ $dish->name }}</td>
                                 <td>{{ $dish->price }}</td>
+                                <td><img src="{{ $dish->picture }}" alt="photo"></td>
                                 <td>{{ $dish->description }}</td>
                                 <td>
                                     <a href="{{ route('admin.dishes.show', $dish->id) }}" class="btn btn-default">View</a>
