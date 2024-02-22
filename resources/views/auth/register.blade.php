@@ -63,42 +63,42 @@
 
 
                         <div class="mb-4 row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Restaurant name</label>
+                            <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">Restaurant name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="restaurant_name" value="{{ old('restaurant_name') }}">
+                                <input id="restaurant_name" type="text" class="form-control" name="restaurant_name" value="{{ old('restaurant_name') }}" required>
                             </div>
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Restaurant address</label>
+                            <label for="restaurant_address" class="col-md-4 col-form-label text-md-right">Restaurant address</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="restaurant_address" value="{{ old('restaurant_address') }}">
+                                <input id="restaurant_address" type="text" class="form-control" name="restaurant_address" value="{{ old('restaurant_address') }}" required>
                             </div>
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">VAT</label>
+                            <label for="vat" class="col-md-4 col-form-label text-md-right">VAT</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="restaurant_vat" value="{{ old('restaurant_vat') }}">
+                                <input id="vat" type="text" class="form-control" name="vat" value="{{ old('vat') }}" required>
                             </div>
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Resturant Picture URL</label>
+                            <label for="restaurant_picture" class="col-md-4 col-form-label text-md-right">Resturant Picture URL</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="restaurant_picture" value="{{ old('restaurant_picture') }}">
+                                <input id="restaurant_picture" type="text" class="form-control" name="restaurant_picture" value="{{ old('restaurant_picture') }}" required>
                             </div>
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Description</label>
+                            <label for="restaurant_description" class="col-md-4 col-form-label text-md-right">Description</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="restaurant_description" value="{{ old('restaurant_description') }}">
+                                <input id="restaurant_description" type="text" class="form-control" name="restaurant_description" value="{{ old('restaurant_description') }}" required>
                             </div>
                         </div>
 
