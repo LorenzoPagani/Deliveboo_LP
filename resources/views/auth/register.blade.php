@@ -61,6 +61,50 @@
                             </div>
                         </div>
 
+
+                        <div class="mb-4 row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Restaurant name</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="restaurant_name" value="{{ old('restaurant_name') }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Restaurant address</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="restaurant_address" value="{{ old('restaurant_address') }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">VAT</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="restaurant_vat" value="{{ old('restaurant_vat') }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Resturant Picture URL</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="restaurant_picture" value="{{ old('restaurant_picture') }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Description</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="restaurant_description" value="{{ old('restaurant_description') }}">
+                            </div>
+                        </div>
+
+
+                        
+
                         <div class="mb-4 row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
