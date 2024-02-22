@@ -102,6 +102,18 @@
                             </div>
                         </div>
 
+                        <div class="mb-4 row">
+                            <label for="restaurant_tags" class="col-md-4 col-form-label text-md-right">Tags</label>
+
+                            <div class="col-md-6">
+                                <select id="restaurant_tags" class="form-select" multiple name="tags[]">
+                                    @foreach ($restaurant_types as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
 
                         
 
