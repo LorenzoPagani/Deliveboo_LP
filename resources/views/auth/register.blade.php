@@ -61,6 +61,50 @@
                             </div>
                         </div>
 
+
+                        <div class="mb-4 row">
+                            <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">Restaurant name</label>
+
+                            <div class="col-md-6">
+                                <input id="restaurant_name" type="text" class="form-control" name="restaurant_name" value="{{ old('restaurant_name') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
+                            <label for="restaurant_address" class="col-md-4 col-form-label text-md-right">Restaurant address</label>
+
+                            <div class="col-md-6">
+                                <input id="restaurant_address" type="text" class="form-control" name="restaurant_address" value="{{ old('restaurant_address') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
+                            <label for="vat" class="col-md-4 col-form-label text-md-right">VAT</label>
+
+                            <div class="col-md-6">
+                                <input id="vat" type="text" class="form-control" name="vat" value="{{ old('vat') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
+                            <label for="restaurant_picture" class="col-md-4 col-form-label text-md-right">Resturant Picture URL</label>
+
+                            <div class="col-md-6">
+                                <input id="restaurant_picture" type="text" class="form-control" name="restaurant_picture" value="{{ old('restaurant_picture') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
+                            <label for="restaurant_description" class="col-md-4 col-form-label text-md-right">Description</label>
+
+                            <div class="col-md-6">
+                                <input id="restaurant_description" type="text" class="form-control" name="restaurant_description" value="{{ old('restaurant_description') }}" required>
+                            </div>
+                        </div>
+
+
+                        
+
                         <div class="mb-4 row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
