@@ -4,6 +4,15 @@
         <h1>Create a new dish</h1>
         <form action="{{ route('admin.dishes.store') }}" method="post">
             @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="form-group">
                 <label for="name">Dish name</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter dish name">
@@ -21,8 +30,8 @@
                 <input type="text" class="form-control" id="price" name="price" placeholder="Enter dish price"> €
             </div>
             <div class="form-group">
-                <label for="visibility">Dish visibility</label>
-                <select class="form-control" id="visibility" name="visibility">
+                <label for="visible">Dish visibility</label>
+                <select class="form-control" id="visible" name="visible">
                     <option value="1">Visible</option>
                     <option value="0">Not visible</option>
                 </select>

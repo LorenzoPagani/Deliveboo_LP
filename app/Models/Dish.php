@@ -32,7 +32,9 @@ class Dish extends Model
         'name',
         'description',
         'price',
+        'picture',
         'visible',
+        'ingredients',
         'restaurant_id',
     ];
 }

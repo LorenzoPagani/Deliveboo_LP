@@ -26,7 +26,7 @@ class UpdateDishRequest extends FormRequest
             'description' => 'required|string',
             'price' => 'required|numeric',
             'visible' => 'required|boolean',
-            'restaurant_id' => 'required|exists:restaurants,id',
+
         ];
     }
 }
