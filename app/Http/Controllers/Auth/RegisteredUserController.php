@@ -41,8 +41,8 @@ class RegisteredUserController extends Controller
             'restaurant_address' => ['required', 'string', 'max:255'],
             'vat' => ['required', 'string', 'min:11', 'max:11'],
             'restaurant_picture' => ['required', 'string'],
-            'restaurant_address' => ['string'],
-            'types' => []
+            'restaurant_description' => ['string'],
+            'tags' => []
         ]);
 
         $user = User::create([
