@@ -7,7 +7,7 @@
             @method('PUT')
             <div class="form-group">
                 <label for="name">Dish name</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $dish->name }}">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') ?? $dish->name }}">
                 @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label for="picture">Dish picture</label>
-                <input type="text" class="form-control @error('picture') is-invalid @enderror" id="picture" name="picture" placeholder="Enter picture URL">
+                <input type="text" class="form-control @error('picture') is-invalid @enderror" id="picture" name="picture" value="{{ old('picture') ?? $dish->picture }}" placeholder="Enter picture URL">
                 @error('picture')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label for="price">Dish price</label>
-                <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ $dish->price }}">
+                <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price') ?? $dish->price }}">
                 @error('price')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -55,8 +55,8 @@
             </div>
             <div class="form-group">
                 <label for="ingredients">Ingredients</label>
-                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients" cols="30" rows="10"
-                    placeholder="enter ingredients">
+                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients" cols="30" rows="10" placeholder="enter ingredients">
+                    {{ $dish->ingredients }}
                 </textarea>
                 @error('ingredients')
                 <span class="invalid-feedback" role="alert">

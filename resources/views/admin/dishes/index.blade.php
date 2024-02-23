@@ -23,7 +23,7 @@
                                 <td><img src="{{ $dish->picture }}" alt="photo"></td>
                                 <td>{{ $dish->description }}</td>
                                 <td>
-                                    <a href="{{ route('admin.dishes.show', $dish->id) }}" class="btn btn-default">View</a>
+                                    <a href="{{ route('admin.dishes.show', $dish->id) }}" class="btn btn-primary">View</a>
                                     <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-warning">Edit</a>
                                     <form style="display:inline-block" method="POST"
                                         action="{{ route('admin.dishes.destroy', $dish->id) }}">
