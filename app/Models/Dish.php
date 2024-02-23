@@ -28,4 +28,13 @@ class Dish extends Model
     {
         return $this->belongsToMany(Allergen::class);
     }
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'picture',
+        'visible',
+        'ingredients',
+        'restaurant_id',
+    ];
 }
