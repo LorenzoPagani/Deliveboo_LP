@@ -7,11 +7,11 @@
             @method('PUT')
             <div class="form-group">
                 <label for="name">Dish name</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $dish->name }}">
+                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') ?? $dish->name }}">
             </div>
             <div class="form-group">
                 <label for="picture">Dish picture</label>
-                <input type="text" class="form-control" id="picture" name="picture" placeholder="Enter picture URL">
+                <input type="text" class="form-control" id="picture" name="picture" value="{{ old('picture') ?? $dish->picture }}" placeholder="Enter picture URL">
             </div>
             <div class="form-group">
                 <label for="description">Dish description</label>
@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label for="price">Dish price</label>
-                <input type="text" class="form-control" id="price" name="price" value="{{ $dish->price }}">
+                <input type="text" class="form-control" id="price" name="price" value="{{ old('price') ?? $dish->price }}">
             </div>
             <div class="form-group">
                 <label for="visible">Dish visibility</label>
@@ -30,8 +30,8 @@
             </div>
             <div class="form-group">
                 <label for="ingredients">Ingredients</label>
-                <textarea class="form-control" name="ingredients" id="ingredients" cols="30" rows="10"
-                    placeholder="enter ingredients">
+                <textarea class="form-control" name="ingredients" id="ingredients" cols="30" rows="10" placeholder="enter ingredients">
+                    {{ $dish->ingredients }}
                 </textarea>
             </div>
             <button type="submit" class="btn btn-primary">Edit</button>
