@@ -9,6 +9,10 @@
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter dish name">
             </div>
             <div class="form-group">
+                <label for="picture">Dish picture</label>
+                <input type="text" class="form-control" id="picture" name="picture" placeholder="Enter picture URL">
+            </div>
+            <div class="form-group">
                 <label for="description">Dish description</label>
                 <textarea class="form-control" id="description" name="description" rows="3"></textarea>
             </div>
@@ -24,14 +28,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="category_id">Dish category</label>
-                <select class="form-control" id="category_id" name="category_id">
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
+                <label for="ingredients">Ingredients</label>
+                <textarea class="form-control" name="ingredients" id="ingredients" cols="30" rows="10"
+                    placeholder="enter ingredients">
+                </textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Create Dish</button>
         </form>
     </div>
 @endsection

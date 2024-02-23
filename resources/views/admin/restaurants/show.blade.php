@@ -7,6 +7,7 @@
             <div class="card mt-2">
                 <div class="card-header text-center">{{ $restaurant->name }}</div>
                 <div class="card-body d-flex flex-column align-items-center">
+                    <img src="{{ $restaurant->picture }}" alt="photo">
                     <p class="mt-2">{{ $restaurant->address }}</p>
                     <p class="mt-2">{{ $restaurant->description }}</p>
                     <p class="mt-2">{{ $restaurant->vat }}</p>
@@ -15,6 +16,7 @@
                             {{ $type->name }}
                         @endforeach
                     </p>
+                    <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">Menù</a>
                 </div>
             </div>
         </div>

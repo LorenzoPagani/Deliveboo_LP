@@ -1,25 +1,17 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container">
-        <h1>Show dish</h1>
-        <div class="form-group">
-            <label for="name">Dish name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ $dish->name }}" disabled>
-        </div>
-        <div class="form-group">
-            <label for="description">Dish description</label>
-            <textarea class="form-control" id="description" name="description" rows="3" disabled>{{ $dish->description }}</textarea>
-        </div>
-        <div class="form-group">
-            <label for="price">Dish price</label>
-            <input type="text" class="form-control" id="price" name="price" value="{{ $dish->price }}" disabled>
-        </div>
-        <div class="form-group">
-            <label for="visible">Dish visibility</label>
-            <select class="form-control" id="visible" name="visible" disabled>
-                <option value="1" {{ $dish->visible == 1 ? 'selected' : '' }}>Visible</option>
-                <option value="0" {{ $dish->visible == 0 ? 'selected' : '' }}>Not visible</option>
-            </select>
+        <h1>Show Dish</h1>
+        <div class="col-md-4">
+            <div class="card mt-2">
+                <div class="card-header text-center">{{ $dish->name }}</div>
+                <div class="card-body d-flex flex-column align-items-center">
+                    <img src="{{ $dish->picture }}" alt="photo">
+                    <p class="mt-2">{{ $dish->description }}</p>
+                    <p class="mt-2">ingredients: {{ $dish->ingredients }}</p>
+                    <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">Menù</a>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

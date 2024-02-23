@@ -3,17 +3,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Your Restaurants</h1>
-                <a class="text-right" href="{{ route('admin.restaurants.create') }}">Add Restaurant</a>
+                <h1>Your Restaurant</h1>
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Restaurant Name</th>
-                            <th>Owner</th>
+                            <th>picture</th>
                             <th>Address</th>
                             <th>description</th>
                             <th>Category</th>
-
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -21,7 +19,7 @@
                         @foreach ($restaurants as $restaurant)
                             <tr>
                                 <td>{{ $restaurant->name }}</td>
-                                <td>{{ $restaurant->user->name }}</td>
+                                <td><img src="{{ $restaurant->picture }}" alt="photo"></td>
                                 <td>{{ $restaurant->address }}</td>
                                 <td>{{ $restaurant->description }}</td>
                                 <td>
@@ -31,7 +29,7 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.restaurants.show', $restaurant->id) }}"
-                                        class="btn btn-default">View</a>
+                                        class="btn btn-primary">Details</a>
                                     <a href="{{ route('admin.restaurants.edit', $restaurant->id) }}"
                                         class="btn btn-warning">Edit</a>
                                     <form style="display:inline-block" method="POST"

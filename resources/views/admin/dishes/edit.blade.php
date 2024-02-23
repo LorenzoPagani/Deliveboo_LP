@@ -10,6 +10,10 @@
                 <input type="text" class="form-control" id="name" name="name" value="{{ $dish->name }}">
             </div>
             <div class="form-group">
+                <label for="picture">Dish picture</label>
+                <input type="text" class="form-control" id="picture" name="picture" placeholder="Enter picture URL">
+            </div>
+            <div class="form-group">
                 <label for="description">Dish description</label>
                 <textarea class="form-control" id="description" name="description" rows="3">{{ $dish->description }}</textarea>
             </div>
@@ -23,6 +27,12 @@
                     <option value="1" {{ $dish->visible == 1 ? 'selected' : '' }}>Visible</option>
                     <option value="0" {{ $dish->visible == 0 ? 'selected' : '' }}>Not visible</option>
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="ingredients">Ingredients</label>
+                <textarea class="form-control" name="ingredients" id="ingredients" cols="30" rows="10"
+                    placeholder="enter ingredients">
+                </textarea>
             </div>
             <button type="submit" class="btn btn-primary">Edit</button>
         </form>
