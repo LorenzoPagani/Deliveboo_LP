@@ -15,7 +15,9 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::all();
+        $user = Auth::user();
+        $restaurant_id = $user->restaurant->id;
+        $dishes = Dish::where('restaurant_id', $restaurant_id)->get();
         return view('admin.dishes.index', compact('dishes'));
     }
 
@@ -35,7 +37,6 @@ class DishController extends Controller
         $new_Dish = new Dish;
         $user = Auth::user();
         $new_Dish->restaurant_id = $user->restaurant->id;
-        $new_Dish->visible = 1;
         $new_Dish->fill($request->all());
         $new_Dish->save();
         return redirect()->route('admin.dishes.index');
