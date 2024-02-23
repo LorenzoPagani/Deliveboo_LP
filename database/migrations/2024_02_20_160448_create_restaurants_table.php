@@ -16,11 +16,11 @@ return new class extends Migration
             $table->timestamps();
             $table->unsignedBigInteger("user_id");
             $table->foreign("user_id")->references("id")->on("users")->onUpdate("cascade")->onDelete("cascade");
-            $table->tinyText("picture");
+            $table->string("picture");
             $table->string("name");
             $table->text("address");
             $table->text("description");
-            $table->char("vat", 11);
+            $table->char("vat", 11)->unique();
         });
     }
 
