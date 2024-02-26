@@ -28,38 +28,29 @@
 
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
-                    <div class="position-sticky pt-3">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white shadow-lg navbar-white sidebar collapse">
+                    <div class="position-sticky pt-3 bg-white">
                         <ul class="nav flex-column">
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/">
+                                <a class="nav-link rounded" href="/">
                                     <i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link mt-2 rounded {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-orange text-white' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurants.index' ? 'bg-secondary' : '' }}"
-                                    href="{{ route('admin.restaurants.index') }}">
-                                    <i class="fa-solid fa-utensils fa-lg fa-fw"></i> Restaurants
+                                <a class="nav-link mt-2 rounded {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-orange text-white' : '' }}"
+                                    href="{{ route('admin.dishes.index') }}">
+                                    <i class="fa-solid fa-utensils fa-lg fa-fw"></i> Dishes
                                 </a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fa-solid fa-sign-out-alt fa-lg fa-fw"></i> {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
 
                         </ul>
 
@@ -67,6 +58,29 @@
                 </nav>
 
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <div class="container-fluid p-2 d-flex justify-content-between align-items-center">
+                        <h1>@yield("title")</h1>
+                        <div class="dropdown">
+                            <i class="fa-solid fa-user dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <p class="ps-3 fs-6">
+                                        {{auth()->user()->name}}
+                                    </p>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item link-entry" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                          </div>
+                        
+                    </div>
                     @yield('content')
                 </main>
             </div>

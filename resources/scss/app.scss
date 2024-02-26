@@ -1,1 +1,29 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+
+.nav-link {
+    color: black;
+}
+
+.nav-link:hover {
+    background-color: orange;
+    color: white;
+}
+
+.bg-orange {
+    background-color: orange;
+}
+
+
+.link-entry:hover {
+    color: orange;
+}
+
+
+.btn {
+    border: 1px solid orange;
+}
+
+.btn:hover {
+    background-color: orange;
+}

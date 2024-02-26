@@ -1,7 +1,10 @@
 @extends('layouts.admin')
+@section("title")
+Orders
+@endsection
+
 @section('content')
     <div class="container">
-        <h1>Orders</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -11,6 +14,7 @@
                     <th>Order email</th>
                     <th>Order address</th>
                     <th>Order total</th>
+                    <th>Order details</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +26,13 @@
                         <td>{{ $order->email }}</td>
                         <td>{{ $order->address }}</td>
                         <td>{{ $order->total }}</td>
+                        <td>
+                            <ul>
+                                @foreach ($order->dishes as $dish)
+                                    <li>x{{$dish->pivot->quantity}} {{$dish->name}}</li>
+                                @endforeach
+                            </ul>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
