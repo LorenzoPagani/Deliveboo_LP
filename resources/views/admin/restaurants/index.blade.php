@@ -19,7 +19,7 @@
                         @foreach ($restaurants as $restaurant)
                             <tr>
                                 <td>{{ $restaurant->name }}</td>
-                                <td><img src="{{ $restaurant->picture }}" alt="photo"></td>
+                                <td><img src="{{ $restaurant->picture }}" style="width=100px;height:100px" alt="photo"></td>
                                 <td>{{ $restaurant->address }}</td>
                                 <td>{{ $restaurant->description }}</td>
                                 <td>

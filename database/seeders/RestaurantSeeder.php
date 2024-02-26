@@ -20,7 +20,7 @@ class RestaurantSeeder extends Seeder
                 'address' => 'via di prova 1',
                 'description' => 'descrizione lunga',
                 'vat' => '12345968745',
-                'picture' => 'https://www.shutterstock.com/it/image-photo/italian-pizza-cooked-woodfired-oven-706108675'
+                'picture' => 'https://www.shutterstock.com/shutterstock/photos/706108675/display_1500/stock-photo-italian-pizza-is-cooked-in-a-wood-fired-oven-706108675.jpg'
             ],
             [
                 'name' => 'pizzeria da Luigi',
@@ -28,7 +28,7 @@ class RestaurantSeeder extends Seeder
                 'address' => 'via di prova 2',
                 'description' => 'descrizione lunga',
                 'vat' => '15962348745',
-                'picture' => 'https://www.shutterstock.com/it/image-photo/restaurant-professional-female-chef-preparing-pizza-2230654237'
+                'picture' => 'https://www.shutterstock.com/shutterstock/photos/2230654237/display_1500/stock-photo-in-restaurant-professional-female-chef-preparing-pizza-adding-ingredients-special-sauce-cheese-2230654237.jpg'
             ],
             [
                 'name' => 'pizzeria da Mario',
@@ -36,7 +36,7 @@ class RestaurantSeeder extends Seeder
                 'address' => 'via di prova 3',
                 'description' => 'descrizione lunga',
                 'vat' => '68712345945',
-                'picture' => 'https://www.shutterstock.com/it/image-photo/pizzeria-naples-city-view-2211244865'
+                'picture' => 'https://www.shutterstock.com/shutterstock/photos/2144844945/display_1500/stock-photo--pizzeria-with-city-of-naples-view-2144844945.jpg'
             ],
 
         ];
