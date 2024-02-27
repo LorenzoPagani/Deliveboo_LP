@@ -27,7 +27,8 @@
             </div>
             <div class="form-group">
                 <label for="price">Dish price</label>
-                <input type="text" class="form-control" id="price" name="price" placeholder="Enter dish price"> €
+                <input type="number" step=".01" class="form-control" id="price" name="price"
+                    placeholder="Enter dish price"> €
             </div>
             <div class="form-group">
                 <label for="visible">Dish visibility</label>
