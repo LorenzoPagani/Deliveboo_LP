@@ -30,7 +30,47 @@ class UserSeeder extends Seeder
                 'name' => 'Gloria Rossi',
                 'email' =>  'gloriarossi@gmail.com',
                 'password' => Hash::make('password')
-            ]
+            ],
+            [
+                'name' => 'Federico Bianchi',
+                'email' =>  'federicobianchi@gmail.com',
+                'password' => Hash::make('password')
+            ],
+            [
+                'name' => 'Martina De Luca',
+                'email' =>  'martinadeluca@gmail.com',
+                'password' => Hash::make('password')
+            ],
+            [
+                'name' => 'Marco Esposito',
+                'email' =>  'marcoesposito@gmail.com',
+                'password' => Hash::make('password')
+            ],
+            [
+                'name' => 'Laura Colombo',
+                'email' =>  'lauracolombo@gmail.com',
+                'password' => Hash::make('password')
+            ],
+            [
+                'name' => 'Simone Ferrara',
+                'email' =>  'simoneferrara@gmail.com',
+                'password' => Hash::make('password')
+            ],
+            [
+                'name' => 'Francesca Santoro',
+                'email' =>  'francescasantoro@gmail.com',
+                'password' => Hash::make('password')
+            ],
+            [
+                'name' => 'Paolo Mancini',
+                'email' =>  'paolomancini@gmail.com',
+                'password' => Hash::make('password')
+            ],
+            [
+                'name' => 'Li Wei',
+                'email' =>  'liwei@gmail.com',
+                'password' => Hash::make('password')
+            ],
         ];
 
         foreach ($users as $user) {
