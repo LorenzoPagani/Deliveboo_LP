@@ -52,6 +52,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link mt-2 rounded {{ Route::currentRouteName() == 'admin.orders' ? 'bg-orange text-white' : '' }}"
+                                    href="{{ route('admin.orders') }}">
+                                    <i class="fa-solid fa-book"></i> Orders
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link mt-2 rounded {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-orange text-white' : '' }}"
                                     href="{{ route('admin.dishes.index') }}">
                                     <i class="fa-solid fa-utensils fa-lg fa-fw"></i> Dishes
