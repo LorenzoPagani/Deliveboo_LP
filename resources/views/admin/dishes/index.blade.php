@@ -23,8 +23,13 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">€{{ $dish->price }}</li>
                                     <li class="list-group-item">{{ $dish->description }}</li>
-
-
+                                    <li class="list-group-item text-center">
+                                        @if ($dish->visible == 1)
+                                            <p class="text-success">Visible</p>
+                                        @else
+                                            <p class="text-danger">Not visible</p>
+                                        @endif
+                                    </li>
                                     <li class="list-group-item d-flex justify-content-between gap-1">
                                         <a class="btn btn-primary"
                                             href="{{ route('admin.dishes.edit', $dish->id) }}">Edit</a>
