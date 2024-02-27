@@ -48,7 +48,7 @@
                             <li class="nav-item">
                                 <a class="nav-link mt-2 rounded {{ Route::currentRouteName() == 'admin.restaurants.index' ? 'bg-orange text-white' : '' }}"
                                     href="{{ route('admin.restaurants.index') }}">
-                                    <i class="fa-solid fa-ellipsis fa-lg fa-fw"></i> Restaurant
+                                    <i class="fa-solid fa-building"></i> Restaurant
                                 </a>
                             </li>
                             <li class="nav-item">
