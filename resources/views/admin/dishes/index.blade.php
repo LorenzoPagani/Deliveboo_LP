@@ -2,10 +2,12 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <h1>All Dishes</h1>
+            <div class="col-12 text-center">
+                <h1>All Dishes</h1>
+            </div>
             <div class="col-12">
 
-                <a class="btn btn-info" href="{{ route('admin.dishes.create') }}">add new dish</a>
+                <a class="btn btn-success" href="{{ route('admin.dishes.create') }}">add new dish</a>
             </div>
             @foreach ($dishes as $dish)
                 <div class="col-12 col-lg-3">
@@ -23,7 +25,7 @@
                                     <li class="list-group-item">{{ $dish->description }}</li>
 
 
-                                    <li class="list-group-item d-flex justify-content-between">
+                                    <li class="list-group-item d-flex justify-content-between gap-1">
                                         <a class="btn btn-primary"
                                             href="{{ route('admin.dishes.edit', $dish->id) }}">Modifica</a>
                                         <a class="btn btn-primary" href="{{ route('admin.dishes.show', $dish->id) }}"
