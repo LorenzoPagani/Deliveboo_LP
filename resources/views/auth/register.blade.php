@@ -98,7 +98,7 @@
                             <label for="restaurant_description" class="col-md-4 col-form-label text-md-right">Description</label>
 
                             <div class="col-md-6">
-                                <input id="restaurant_description" type="text" class="form-control" name="restaurant_description" value="{{ old('restaurant_description') }}" required>
+                                <textarea id="restaurant_description" type="text" class="form-control" name="restaurant_description" value="{{ old('restaurant_description') }}" required></textarea>
                             </div>
                         </div>
 
