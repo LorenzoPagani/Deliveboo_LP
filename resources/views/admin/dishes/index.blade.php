@@ -37,7 +37,7 @@
                                             class="btn btn-primary">Details</a>
                                     </li>
                                     <li class="list-group-item text-center">
-                                        <form style="display:inline-block" method="POST"
+                                        <form class="delete-btn" style="display:inline-block" method="POST"
                                             action="{{ route('admin.dishes.destroy', $dish->id) }}">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -51,8 +51,8 @@
                     </div>
                 </div>
             @endforeach
-
         </div>
+
         <style lang="scss">
             body {
                 background-color: #c5d7dd;
