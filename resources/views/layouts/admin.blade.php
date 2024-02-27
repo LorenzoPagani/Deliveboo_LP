@@ -28,7 +28,8 @@
 
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white shadow-lg navbar-white sidebar collapse">
+                <nav id="sidebarMenu"
+                    class="col-md-3 col-lg-2 d-md-block bg-white shadow-lg navbar-white sidebar collapse">
                     <div class="position-sticky pt-3 bg-white">
                         <ul class="nav flex-column">
 
@@ -42,6 +43,12 @@
                                 <a class="nav-link mt-2 rounded {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-orange text-white' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mt-2 rounded {{ Route::currentRouteName() == 'admin.restaurants.index' ? 'bg-orange text-white' : '' }}"
+                                    href="{{ route('admin.restaurants.index') }}">
+                                    <i class="fa-solid fa-ellipsis fa-lg fa-fw"></i> Restaurant
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -59,27 +66,29 @@
 
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     <div class="container-fluid p-2 d-flex justify-content-between align-items-center">
-                        <h1>@yield("title")</h1>
+                        <h1>@yield('title')</h1>
                         <div class="dropdown">
-                            <i class="fa-solid fa-user dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                            <i class="fa-solid fa-user dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false"></i>
                             <ul class="dropdown-menu">
                                 <li>
                                     <p class="ps-3 fs-6">
-                                        {{auth()->user()->name}}
+                                        {{ auth()->user()->name }}
                                     </p>
                                 </li>
                                 <li>
                                     <a class="dropdown-item link-entry" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </li>
                             </ul>
-                          </div>
-                        
+                        </div>
+
                     </div>
                     @yield('content')
                 </main>
