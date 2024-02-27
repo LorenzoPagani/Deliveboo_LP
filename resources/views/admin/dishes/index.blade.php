@@ -27,16 +27,16 @@
 
                                     <li class="list-group-item d-flex justify-content-between gap-1">
                                         <a class="btn btn-primary"
-                                            href="{{ route('admin.dishes.edit', $dish->id) }}">Modifica</a>
+                                            href="{{ route('admin.dishes.edit', $dish->id) }}">Edit</a>
                                         <a class="btn btn-primary" href="{{ route('admin.dishes.show', $dish->id) }}"
-                                            class="btn btn-primary">Dettagli</a>
+                                            class="btn btn-primary">Details</a>
                                     </li>
                                     <li class="list-group-item text-center">
                                         <form style="display:inline-block" method="POST"
                                             action="{{ route('admin.dishes.destroy', $dish->id) }}">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <button type="submit" class="form-control btn btn-danger">Cancella</a>
+                                            <button type="submit" class="form-control btn btn-danger">Delete</a>
                                         </form>
                                     </li>
 

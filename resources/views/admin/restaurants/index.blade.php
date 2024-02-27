@@ -30,8 +30,8 @@
                                     <li class="list-group-item">VAT: {{ $restaurant->vat }}</li>
 
                                     <li class="list-group-item text-center"><a class="btn btn-primary"
-                                            href="{{ route('admin.restaurants.edit', $restaurant->id) }}">Modifica</a>
-                                        <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">Menù</a>
+                                            href="{{ route('admin.restaurants.edit', $restaurant->id) }}">Edit</a>
+                                        <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">View dishes</a>
                                         {{-- capiamo se aggiungere dettagli o eliminare la show --}}
                                         {{--  <a class="btn btn-primary"
                                             href="{{ route('admin.restaurants.show', $restaurant->id) }}"
