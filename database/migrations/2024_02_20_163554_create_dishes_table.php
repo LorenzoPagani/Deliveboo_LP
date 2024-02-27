@@ -21,14 +21,17 @@ return new class extends Migration
             $table->text("ingredients");
             $table->decimal("price", 5, 2);
             $table->boolean("visible");
+            $table->softDeletes();
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('dishes');
+        Schema::table('dishes', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };
