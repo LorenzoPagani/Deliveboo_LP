@@ -15,7 +15,7 @@
                             <img class="w-50 mb-2" src="{{ $dish->picture }}" alt="photo">
                             <div class="card-header rounded">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">{{ $dish->price }}</li>
+                                    <li class="list-group-item">€{{ $dish->price }}</li>
                                     <li class="list-group-item">{{ $dish->description }}</li>
 
 
