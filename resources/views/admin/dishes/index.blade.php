@@ -7,8 +7,8 @@
 
                 <a class="btn btn-info" href="{{ route('admin.dishes.create') }}">add new dish</a>
             </div>
-            <div class="col-12 col-lg-6">
-                @foreach ($dishes as $dish)
+            @foreach ($dishes as $dish)
+                <div class="col-12 col-lg-3">
                     <div class="card mt-2">
                         <div class="card-header text-center">
                             <h3>
@@ -23,10 +23,13 @@
                                     <li class="list-group-item">{{ $dish->description }}</li>
 
 
-                                    <li class="list-group-item"><a class="btn btn-primary"
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <a class="btn btn-primary"
                                             href="{{ route('admin.dishes.edit', $dish->id) }}">Modifica</a>
                                         <a class="btn btn-primary" href="{{ route('admin.dishes.show', $dish->id) }}"
                                             class="btn btn-primary">Dettagli</a>
+                                    </li>
+                                    <li class="list-group-item text-center">
                                         <form style="display:inline-block" method="POST"
                                             action="{{ route('admin.dishes.destroy', $dish->id) }}">
                                             <input type="hidden" name="_method" value="DELETE">
@@ -39,8 +42,8 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
 
         </div>
         <style lang="scss">
