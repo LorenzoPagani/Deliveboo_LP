@@ -21,7 +21,7 @@ class DishSeeder extends Seeder
                 "restaurant_id" => 3,
                 'visible' => true,
                 'ingredients' => 'pomodoro, mozzarella, basilico',
-                'picture' => 'https://www.shutterstock.com/it/image-photo/pizza-margherita-mozzarella-isolated-on-white-582934354',
+                'picture' => 'https://www.shutterstock.com/shutterstock/photos/582934354/display_1500/stock-photo-pizza-margherita-mozzarella-isolated-on-white-background-582934354.jpg',
             ],
             [
                 'name' => 'quattro stagioni',
@@ -30,7 +30,7 @@ class DishSeeder extends Seeder
                 'description' => 'descrizione lunga',
                 'visible' => true,
                 'ingredients' => 'pomodoro, mozzarella, prosciutto, funghi, olive, carciofi',
-                'picture' => 'https://www.shutterstock.com/it/image-photo/homemade-pizza-four-seasons-tomatoes-mozzarella-2238604689',
+                'picture' => 'https://www.shutterstock.com/shutterstock/photos/2238604689/display_1500/stock-photo-homemade-pizza-four-seasons-with-tomatoes-mozzarella-mushrooms-artichokes-ham-and-olives-close-2238604689.jpg',
             ],
             [
                 'name' => 'capricciosa',
@@ -39,7 +39,7 @@ class DishSeeder extends Seeder
                 'description' => 'descrizione lunga',
                 'visible' => true,
                 'ingredients' => 'pomodoro, mozzarella, prosciutto, funghi, olive',
-                'picture' => 'https://www.shutterstock.com/it/image-photo/tasty-italian-capricciosa-pizza-fresh-ingredients-1758758507',
+                'picture' => 'https://www.shutterstock.com/shutterstock/photos/1758758507/display_1500/stock-photo-tasty-italian-capricciosa-pizza-with-fresh-ingredients-1758758507.jpg',
             ],
         ];
 
@@ -50,7 +50,7 @@ class DishSeeder extends Seeder
             $newDish->description = $dish["description"];
             $newDish->visible = $dish["visible"];
             $newDish->restaurant_id = $dish["restaurant_id"];
-            $newDish->ingredients= $dish["ingredients"];
+            $newDish->ingredients = $dish["ingredients"];
             $newDish->picture = $dish["picture"];
             $newDish->save();
         }
