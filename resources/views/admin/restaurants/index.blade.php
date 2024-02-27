@@ -2,50 +2,53 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-                <h1>Your Restaurant</h1>
-                <div class="col-12 col-lg-6">
-                    @foreach ($restaurants as $restaurant)
-                        <div class="card mt-2">
-                            <div class="card-header text-center">
-                                <h3>
-                                    {{ $restaurant->name }}
-                                </h3>
-                            </div>
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <img class="w-50 mb-2" src="{{ $restaurant->picture }}" alt="photo">
-                                <div class="card-header rounded">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">{{ $restaurant->address }}</li>
-                                        <li class="list-group-item">{{ $restaurant->description }}</li>
-                                        <li class="list-group-item"> Categories: @if ($restaurant->types->isNotEmpty())
-                                                @foreach ($restaurant->types as $type)
-                                                    {{ $type->name }}
-                                                @endforeach
-                                            @else
-                                                none
-                                            @endif
-                                        </li>
-                                        <li class="list-group-item">VAT: {{ $restaurant->vat }}</li>
+            <h1>Your Restaurant</h1>
+            <div class="col-12 col-lg-6">
+                @foreach ($restaurants as $restaurant)
+                    <div class="card mt-2">
+                        <div class="card-header text-center">
+                            <h3>
+                                {{ $restaurant->name }}
+                            </h3>
+                        </div>
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <img class="w-50 mb-2" src="{{ $restaurant->picture }}" alt="photo">
+                            <div class="card-header rounded">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">{{ $restaurant->address }}</li>
+                                    <li class="list-group-item">{{ $restaurant->description }}</li>
+                                    <li class="list-group-item"> Categories: @if ($restaurant->types->isNotEmpty())
+                                            @foreach ($restaurant->types as $type)
+                                                {{ $type->name }}
+                                            @endforeach
+                                        @else
+                                            none
+                                        @endif
+                                    </li>
+                                    <li class="list-group-item">VAT: {{ $restaurant->vat }}</li>
 
-                                        <li class="list-group-item"><a class="btn btn-primary"
-                                                href="{{ route('admin.restaurants.edit', $restaurant->id) }}">Modifica</a>
-                                            <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">Menù</a>
-                                            <a class="btn btn-primary" href="{{ route('admin.restaurants.show', $restaurant->id) }}"
-                                                class="btn btn-primary">Dettagli</a>
-                                            <form style="display:inline-block" method="POST"
+                                    <li class="list-group-item text-center"><a class="btn btn-primary"
+                                            href="{{ route('admin.restaurants.edit', $restaurant->id) }}">Modifica</a>
+                                        <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">Menù</a>
+                                        {{-- capiamo se aggiungere dettagli o eliminare la show --}}
+                                        {{--  <a class="btn btn-primary"
+                                            href="{{ route('admin.restaurants.show', $restaurant->id) }}"
+                                            class="btn btn-primary">Dettagli</a> --}}
+                                        {{-- Decidiamo se togliere la possibilità di cancellare il ristorante --}}
+                                        {{-- <form style="display:inline-block" method="POST"
                                                 action="{{ route('admin.restaurants.destroy', $restaurant->id) }}">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <button type="submit" class="form-control btn btn-danger">Cancella</a>
-                                            </form>
-                                        </li>
+                                            </form> --}}
+                                    </li>
 
-                                    </ul>
-                                </div>
+                                </ul>
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
+            </div>
 
         </div>
         <style lang="scss">
@@ -82,5 +85,4 @@
 
             }
         </style>
-      
-@endsection
+    @endsection

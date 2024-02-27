@@ -3,6 +3,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <h1>All Dishes</h1>
+            <div class="col-12">
+
+                <a class="btn btn-info" href="{{ route('admin.dishes.create') }}">add new dish</a>
+            </div>
             <div class="col-12 col-lg-6">
                 @foreach ($dishes as $dish)
                     <div class="card mt-2">
@@ -21,8 +25,7 @@
 
                                     <li class="list-group-item"><a class="btn btn-primary"
                                             href="{{ route('admin.dishes.edit', $dish->id) }}">Modifica</a>
-                                        <a class="btn btn-primary"
-                                            href="{{ route('admin.dishes.show', $dish->id) }}"
+                                        <a class="btn btn-primary" href="{{ route('admin.dishes.show', $dish->id) }}"
                                             class="btn btn-primary">Dettagli</a>
                                         <form style="display:inline-block" method="POST"
                                             action="{{ route('admin.dishes.destroy', $dish->id) }}">
@@ -74,4 +77,4 @@
 
             }
         </style>
-@endsection
+    @endsection
