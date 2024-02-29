@@ -25,7 +25,7 @@ class StoreDishRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'description' => 'required|string|max:500',
+            'description' => 'required|string|max:800',
             "picture" => ["nullable", File::image()->min("1kb")->max("2mb")],
             'price' => 'required|numeric|between:0.1,999.99',
             'visible' => 'required|boolean',
