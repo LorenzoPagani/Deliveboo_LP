@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\File;
+
 
 class UpdateDishRequest extends FormRequest
 {
@@ -23,9 +25,11 @@ class UpdateDishRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
+            'description' => 'required|string|max:500',
+            "picture" => ["nullable", File::image()->min("1kb")->max("2mb")],
+            'price' => 'required|numeric|between:0.1,999.99',
             'visible' => 'required|boolean',
+            'ingredients' => 'required|string',
 
         ];
     }

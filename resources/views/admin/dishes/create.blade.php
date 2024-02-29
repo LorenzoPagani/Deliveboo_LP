@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@section("title")
-Create a new dish
+@section('title')
+    Create a new dish
 @endsection
 
 @section('content')
     <div class="container">
-        <form action="{{ route('admin.dishes.store') }}" method="post">
+        <form action="{{ route('admin.dishes.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -19,59 +19,66 @@ Create a new dish
             @endif
             <div class="form-group">
                 <label for="name">Dish name</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Enter dish name" value="{{ old('name') }}">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+                    placeholder="Enter dish name" value="{{ old('name') }}">
                 @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="picture">Dish picture</label>
-                <input type="text" class="form-control @error('picture') is-invalid @enderror" id="picture" name="picture" placeholder="Enter picture URL" value="{{ old('picture') }}">
+                <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
+                    name="picture" placeholder="Enter picture " value="{{ old('picture') }}">
                 @error('picture')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="description">Dish description</label>
-                <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3" value="{{ old('description') }}"></textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
+                    rows="3" value="{{ old('description') }}"></textarea>
                 @error('description')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="price">Dish price</label>
-                <input type="number" min="0" step="0.01" max="999.99" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="€" value="{{ old('price') }}">
+                <input type="number" min="0" step="0.01" max="999.99"
+                    class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="€"
+                    value="{{ old('price') }}">
                 @error('price')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="visible">Dish visibility</label>
-                <select class="form-control @error('visible') is-invalid @enderror" id="visible" name="visible" value="{{ old('visible') }}">
+                <select class="form-control @error('visible') is-invalid @enderror" id="visible" name="visible"
+                    value="{{ old('visible') }}">
                     <option value="1">Visible</option>
                     <option value="0">Not visible</option>
                 </select>
                 @error('visible')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="ingredients">Ingredients</label>
-                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients" cols="30" rows="10" placeholder="enter ingredients" value="{{ old('ingredients') }}"></textarea>
+                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients"
+                    cols="30" rows="10" placeholder="enter ingredients" value="{{ old('ingredients') }}"></textarea>
                 @error('ingredients')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
             <button type="submit" class="btn btn-primary">Create Dish</button>

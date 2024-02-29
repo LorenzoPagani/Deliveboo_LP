@@ -21,8 +21,8 @@
                                     @endif
                                 </li>
                                 <li class="list-group-item"><a class="btn btn-primary"
-                                        href="{{ route('admin.dishes.edit', $dish->id) }}">Modifica</a>
-                                    <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">Torna al Menù</a>
+                                        href="{{ route('admin.dishes.edit', $dish->id) }}">edit</a>
+                                    <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">Back to Menù</a>
                                 </li>
                             </ul>
                         </div>

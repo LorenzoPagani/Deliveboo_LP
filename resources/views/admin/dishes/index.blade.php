@@ -18,7 +18,7 @@
                             </h3>
                         </div>
                         <div class="card-body d-flex flex-column align-items-center">
-                            <img class="w-50 mb-2" src="{{ $dish->picture }}" alt="photo">
+                            <img class="w-50 mb-2" src="{{ asset('storage/' . $dish->picture) }}" alt="photo">
                             <div class="card-header rounded">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">€{{ $dish->price }}</li>

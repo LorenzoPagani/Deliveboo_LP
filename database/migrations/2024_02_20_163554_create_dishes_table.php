@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger("restaurant_id");
-            $table->char("name", 50);
-            $table->tinyText("picture");
+            $table->string("name");
+            $table->string("picture")->nullable();
             $table->text("description");
-            $table->text("ingredients");
+            $table->string("ingredients");
             $table->decimal("price", 5, 2);
             $table->boolean("visible");
             $table->softDeletes();

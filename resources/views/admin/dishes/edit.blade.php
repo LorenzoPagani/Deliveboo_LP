@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <h1>Edit dish</h1>
-        <form action="{{ route('admin.dishes.update', $dish->id) }}" method="post">
+        <form action="{{ route('admin.dishes.update', $dish->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label for="picture">Dish picture</label>
-                <input type="text" class="form-control @error('picture') is-invalid @enderror" id="picture"
+                <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
                     name="picture" value="{{ old('picture') ?? $dish->picture }}" placeholder="Enter picture URL">
                 @error('picture')
                     <span class="invalid-feedback" role="alert">

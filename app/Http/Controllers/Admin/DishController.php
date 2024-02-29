@@ -7,6 +7,7 @@ use App\Models\Dish;
 use App\Http\Requests\StoreDishRequest;
 use App\Http\Requests\UpdateDishRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -34,10 +35,14 @@ class DishController extends Controller
      */
     public function store(StoreDishRequest $request)
     {
+        $validati = $request->validated();
+        $percorso = Storage::disk("public")->put('/uploads', $request['picture']);
+        $validati["picture"] = $percorso;
+
         $new_Dish = new Dish;
         $user = Auth::user();
         $new_Dish->restaurant_id = $user->restaurant->id;
-        $new_Dish->fill($request->all());
+        $new_Dish->fill($validati);
         $new_Dish->save();
         return redirect()->route('admin.dishes.index');
     }
@@ -63,8 +68,14 @@ class DishController extends Controller
      */
     public function update(UpdateDishRequest $request, Dish $dish)
     {
-        $data = $request->all();
-        $dish->update($data);
+        $validati = $request->validated();
+        if ($request['picture'])
+            $percorso =  Storage::disk("public")->put('/uploads', $request['picture']);
+        else
+            $percorso = null;
+
+        $validati["picture"] = $percorso;
+        $dish->update($validati);
         return redirect()->route('admin.dishes.index');
     }
 
