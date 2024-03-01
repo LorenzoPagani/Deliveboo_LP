@@ -26,3 +26,13 @@ erase_prev.onclick = evt => {
     picture.value = ''
     prev_box.classList.add('d-none')
 }
+
+var myModal = document.getElementById('deleteModal')
+let confirmDeleteButton = document.getElementById('confirmDelete')
+
+myModal.addEventListener('shown.bs.modal', function () {
+    confirmDeleteButton.addEventListener('click', function (e) {
+        document.getElementById('deleteForm').submit()
+        myModal.modal('hide')
+    })
+})
