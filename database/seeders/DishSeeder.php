@@ -6,6 +6,10 @@ use App\Models\Dish;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use Illuminate\Support\Facades\Storage;
+
+use Illuminate\Http\File;
+
 class DishSeeder extends Seeder
 {
     /**
@@ -249,7 +253,12 @@ class DishSeeder extends Seeder
             $newDish->visible = $dish["visible"];
             $newDish->restaurant_id = $dish["restaurant_id"];
             $newDish->ingredients = $dish["ingredients"];
-            $newDish->picture = $dish["picture"];
+
+            $filename = basename($dish["picture"]);
+            file_put_contents($filename, file_get_contents($dish["picture"]));
+            $percorso = Storage::disk("public")->putFile('/uploads', new File($filename));
+            unlink($filename);
+            $newDish->picture = $percorso;
             $newDish->save();
         }
     }
