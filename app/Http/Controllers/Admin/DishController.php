@@ -52,6 +52,9 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
+        if (Auth::user()->cannot('view', $dish)) {
+            abort(403, "You are not authorized to access this dish");
+        }
         return view('admin.dishes.show', compact('dish'));
     }
 
@@ -60,6 +63,9 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
+        if (Auth::user()->cannot('update', $dish)) {
+            abort(403, "You are not authorized to access this dish");
+        }
         return view('admin.dishes.edit', compact('dish'));
     }
 
@@ -68,6 +74,9 @@ class DishController extends Controller
      */
     public function update(UpdateDishRequest $request, Dish $dish)
     {
+        if (Auth::user()->cannot('update', $dish)) {
+            abort(403, "You are not authorized to access this dish");
+        }
         $validati = $request->validated();
         if ($request['picture'])
             $percorso =  Storage::disk("public")->put('/uploads', $request['picture']);
@@ -84,6 +93,9 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
+        if (Auth::user()->cannot('delete', $dish)) {
+            abort(403, "You are not authorized to access this dish");
+        }
         $dish->delete();
         return redirect()->route('admin.dishes.index');
     }
