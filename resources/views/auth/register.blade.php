@@ -17,13 +17,11 @@
         function display_error(){
             result = check_password_match()
             if (result == false){
-                document.getElementById("register-button").disabled = false;
                 document.getElementById("password-confirm").classList.add("is-invalid");
                 document.getElementById("confirm-error").classList.add("invalid-feedback")
                 document.getElementById("confirm-error").innerHTML = '<span><strong>Password confirm does not match</strong></span>';
             }
             else{
-                document.getElementById("register-button").disabled = false;
                 document.getElementById("confirm-error").innerHTML = "";
                 document.getElementById("confirm-error").classList.remove("invalid-feedback")
                 document.getElementById("password-confirm").classList.remove("is-invalid");
@@ -108,7 +106,7 @@
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password" onkeyup="display_error()">
+                                        name="password_confirmation" required autocomplete="new-password" oninput="display_error()">
                                     <div id="confirm-error"></div>
                                 </div>
                             </div>
