@@ -2,7 +2,8 @@
 @section('content')
     <div class="container">
         <h1>Edit dish</h1>
-        <form action="{{ route('admin.dishes.update', $dish->id) }}" method="post" enctype="multipart/form-data">
+        <form runat="server" action="{{ route('admin.dishes.update', $dish->id) }}" method="post"
+            enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -17,8 +18,13 @@
             </div>
             <div class="form-group">
                 <label for="picture">Picture</label>
-                <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
-                    name="picture" value="{{ old('picture') ?? $dish->picture }}" placeholder="Enter picture URL">
+                <input type="file" accept="image/*" class="form-control @error('picture') is-invalid @enderror"
+                    id="picture" name="picture" value="{{ old('picture') ?? $dish->picture }}"
+                    placeholder="Enter picture URL">
+                <div id="prev_box" class=" d-none">
+                    <img class=" pic-preview" id="thumb" src="#" alt="your image" />
+                    <div id="erase_prev" class="btn btn-danger">remove picture</div>
+                </div>
                 @error('picture')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

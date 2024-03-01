@@ -13,3 +13,16 @@ document.querySelectorAll('.delete-btn').forEach(button => {
         }
     })
 })
+
+/* aggiunta preview foto nei form */
+picture.onchange = evt => {
+    const [file] = picture.files
+    if (file) {
+        prev_box.classList.remove('d-none')
+        thumb.src = URL.createObjectURL(file)
+    }
+}
+erase_prev.onclick = evt => {
+    picture.value = ''
+    prev_box.classList.add('d-none')
+}

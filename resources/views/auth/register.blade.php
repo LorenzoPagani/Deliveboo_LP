@@ -104,11 +104,18 @@
 
 
                             <div class="mb-4 row">
-                                <label for="restaurant_picture" class="col-md-4 col-form-label text-md-right">Restaurant Picture</label>
-                                
+                                <label for="restaurant_picture" class="col-md-4 col-form-label text-md-right">Restaurant
+                                    Picture</label>
+
                                 <div class="col-md-6">
-                                    <input type="file" class="form-control @error('restaurant_picture') is-invalid @enderror" id="restaurant_picture"
-                                        name="restaurant_picture" placeholder="Enter picture " value="{{ old('restaurant_picture') }}">
+                                    <input type="file"
+                                        class="form-control @error('restaurant_picture') is-invalid @enderror"
+                                        id="restaurant_picture" name="restaurant_picture" placeholder="Enter picture "
+                                        value="{{ old('restaurant_picture') }}">
+                                    <div id="prev_box" class=" d-none">
+                                        <img class=" pic-preview" id="thumb" src="#" alt="your image" />
+                                        <div id="erase_prev" class="btn btn-danger">remove picture</div>
+                                    </div>
                                     @error('restaurant_picture')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -121,41 +128,57 @@
                                 <label for="restaurant_description"
                                     class="col-md-4 col-form-label text-md-right">Description</label>
 
-                            <div class="col-md-6">
-                                <textarea id="restaurant_description" type="text" class="form-control" name="restaurant_description" value="{{ old('restaurant_description') }}" required></textarea>
-                            </div>
-
-                            <div class="mb-4 row">
-                                <label for="restaurant_tags" class="col-md-4 col-form-label text-md-right">Tags</label>
-
                                 <div class="col-md-6">
-                                    @foreach ($restaurant_types as $item)
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="tags[]"
-                                                value="{{ $item->id }}" id="{{ $item->id }}">
-                                            <label class="form-check-label" for="{{ $item->id }}">
-                                                {{ $item->name }}
-                                            </label>
-                                        </div>
-                                    @endforeach
-
+                                    <textarea id="restaurant_description" type="text" class="form-control" name="restaurant_description"
+                                        value="{{ old('restaurant_description') }}" required></textarea>
                                 </div>
-                            </div>
 
+                                <div class="mb-4 row">
+                                    <label for="restaurant_tags"
+                                        class="col-md-4 col-form-label text-md-right">Tags</label>
 
+                                    <div class="col-md-6">
+                                        @foreach ($restaurant_types as $item)
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="tags[]"
+                                                    value="{{ $item->id }}" id="{{ $item->id }}">
+                                                <label class="form-check-label" for="{{ $item->id }}">
+                                                    {{ $item->name }}
+                                                </label>
+                                            </div>
+                                        @endforeach
 
-
-                            <div class="mb-4 row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
-                                    </button>
+                                    </div>
                                 </div>
-                            </div>
+
+
+
+
+                                <div class="mb-4 row mb-0">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Register') }}
+                                        </button>
+                                    </div>
+                                </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        /* aggiunta preview foto nei form */
+        restaurant_picture.onchange = evt => {
+            const [file] = restaurant_picture.files
+            if (file) {
+                prev_box.classList.remove('d-none')
+                thumb.src = URL.createObjectURL(file)
+            }
+        }
+        erase_prev.onclick = evt => {
+            restaurant_picture.value = ''
+            prev_box.classList.add('d-none')
+        }
+    </script>
 @endsection
