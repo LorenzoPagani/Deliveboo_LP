@@ -22,7 +22,7 @@
                             <div class="w-75 text-center rounded">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">€{{ $dish->price }}</li>
-                                    <li class="list-group-item">{{ $dish->description }}</li>
+                                    <li class="list-group-item">{{ readMore($dish->description) }}</li>
                                     <li class="list-group-item text-center">
                                         @if ($dish->visible == 1)
                                             <p class="text-success">Visible</p>
@@ -68,6 +68,17 @@
                 </div>
             </div>
         </div>
+
+        @php
+
+            function readMore($description, $chars = 100)
+            {
+                $description = substr($description, 0, $chars);
+                $description = substr($description, 0, strrpos($description, ' '));
+                $description = $description . "...";
+                return $description;
+            }
+        @endphp
 
 
         <style lang="scss">
