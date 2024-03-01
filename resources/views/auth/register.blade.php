@@ -130,15 +130,20 @@
 
                                 <div class="col-md-6">
                                     @foreach ($restaurant_types as $item)
-                                        <div class="form-check">
+                                        <div class="form-check ">
                                             <input class="form-check-input" type="checkbox" name="tags[]"
-                                                value="{{ $item->id }}" id="{{ $item->id }}">
-                                            <label class="form-check-label" for="{{ $item->id }}">
-                                                {{ $item->name }}
-                                            </label>
-                                        </div>
+                                                value="{{ $item->id }}" id="{{ $item->id }}" >
+                                                <label class="form-check-label" for="{{ $item->id }}" required>
+                                                    {{ $item->name }}
+                                                </label>
+                                            </div>
                                     @endforeach
-
+                                            
+                                    @error('restaurant_tags')
+                                        <div class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
