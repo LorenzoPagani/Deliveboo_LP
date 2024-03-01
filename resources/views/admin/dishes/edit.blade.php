@@ -36,6 +36,18 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="ingredients">Ingredients</label>
+                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients"
+                    cols="30" rows="10" placeholder="enter ingredients">
+                    {{ $dish->ingredients }}
+                </textarea>
+                @error('ingredients')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="price">Price</label>
                 <input type="number" step=".01" class="form-control @error('price') is-invalid @enderror"
                     id="price" name="price" value="{{ old('price') ?? $dish->price }}">
@@ -52,18 +64,6 @@
                     <option value="0" {{ $dish->visible == 0 ? 'selected' : '' }}>Not visible</option>
                 </select>
                 @error('visible')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="ingredients">Ingredients</label>
-                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients"
-                    cols="30" rows="10" placeholder="enter ingredients">
-                    {{ $dish->ingredients }}
-                </textarea>
-                @error('ingredients')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

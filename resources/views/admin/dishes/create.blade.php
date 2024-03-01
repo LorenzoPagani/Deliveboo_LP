@@ -48,6 +48,16 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="ingredients">Ingredients</label>
+                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients"
+                    cols="30" rows="10" placeholder="enter ingredients" value="{{ old('ingredients') }}"></textarea>
+                @error('ingredients')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="price">Price</label>
                 <input type="number" min="0" step="0.01" max="999.99"
                     class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="€"
@@ -66,16 +76,6 @@
                     <option value="0">Not visible</option>
                 </select>
                 @error('visible')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="ingredients">Ingredients</label>
-                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients"
-                    cols="30" rows="10" placeholder="enter ingredients" value="{{ old('ingredients') }}"></textarea>
-                @error('ingredients')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
