@@ -6,7 +6,7 @@
             @csrf
             @method('PUT')
             <div class="form-group">
-                <label for="name">Dish name</label>
+                <label for="name">Name</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                     value="{{ old('name') ?? $dish->name }}">
                 @error('name')
@@ -16,7 +16,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="picture">Dish picture</label>
+                <label for="picture">Picture</label>
                 <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
                     name="picture" value="{{ old('picture') ?? $dish->picture }}" placeholder="Enter picture URL">
                 @error('picture')
@@ -26,7 +26,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="description">Dish description</label>
+                <label for="description">Description</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
                     rows="3">{{ $dish->description }}</textarea>
                 @error('description')
@@ -36,7 +36,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="price">Dish price</label>
+                <label for="price">Price</label>
                 <input type="number" step=".01" class="form-control @error('price') is-invalid @enderror"
                     id="price" name="price" value="{{ old('price') ?? $dish->price }}">
                 @error('price')
@@ -46,7 +46,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="visible">Dish visibility</label>
+                <label for="visible">Visibility</label>
                 <select class="form-control @error('price') is-invalid @enderror" id="visible" name="visible">
                     <option value="1" {{ $dish->visible == 1 ? 'selected' : '' }}>Visible</option>
                     <option value="0" {{ $dish->visible == 0 ? 'selected' : '' }}>Not visible</option>

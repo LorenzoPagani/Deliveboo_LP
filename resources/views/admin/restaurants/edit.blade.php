@@ -6,24 +6,24 @@
             @csrf
             @method('PUT')
             <div class="form-group">
-                <label for="name">Restaurant name</label>
+                <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{ $restaurant->name }}">
             </div>
             <div class="form-group">
-                <label for="address">Restaurant address</label>
+                <label for="address">Address</label>
                 <input type="text" class="form-control" id="address" name="address" value="{{ $restaurant->address }}">
             </div>
             <div class="form-group">
-                <label for="description">Restaurant description</label>
+                <label for="description">Description</label>
                 <input type="text" class="form-control" id="description" name="description"
                     value="{{ $restaurant->description }}">
             </div>
             <div class="form-group">
-                <label for="vat">Restaurant VAT number</label>
+                <label for="vat">VAT number</label>
                 <input type="text" class="form-control" id="vat" name="vat" value="{{ $restaurant->vat }}">
             </div>
             <div class="form-group">
-                <label for="type">Restaurant categories</label>
+                <label for="type">Categories</label>
                 <select multiple class="form-control" id="type" name="types[]">
                     @foreach ($types as $type)
                         <option value="{{ $type->id }}" {{ $type->id == $restaurant->type ? 'selected' : '' }}>
