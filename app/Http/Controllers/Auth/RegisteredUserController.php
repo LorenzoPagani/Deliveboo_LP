@@ -45,7 +45,7 @@ class RegisteredUserController extends Controller
             'vat' => ['required', 'string', 'min:11', 'max:11'],
             'restaurant_picture' => ["nullable", File::image()->min("1kb")->max("2mb")],
             'restaurant_description' => ['string'],
-            'tags' => []
+            'tags' => ['required']
         ]);
 
         $user = User::create([

@@ -18,7 +18,7 @@
                 </div>
             @endif
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Name*</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                     placeholder="Enter dish name" value="{{ old('name') }}">
                 @error('name')
@@ -31,6 +31,10 @@
                 <label for="picture">Picture</label>
                 <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
                     name="picture" placeholder="Enter picture " value="{{ old('picture') }}">
+                <div id="prev_box" class=" d-none">
+                    <img class=" pic-preview" id="thumb" src="#" alt="your image" />
+                    <div id="erase_prev" class="btn btn-danger">remove picture</div>
+                </div>
                 @error('picture')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -38,7 +42,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
+                <label for="description">Description*</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
                     rows="3" value="{{ old('description') }}"></textarea>
                 @error('description')
@@ -48,7 +52,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="ingredients">Ingredients</label>
+                <label for="ingredients">Ingredients*</label>
                 <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients"
                     cols="30" rows="10" placeholder="enter ingredients" value="{{ old('ingredients') }}"></textarea>
                 @error('ingredients')
@@ -58,7 +62,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="price">Price</label>
+                <label for="price">Price*</label>
                 <input type="number" min="0" step="0.01" max="999.99"
                     class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="€"
                     value="{{ old('price') }}">
