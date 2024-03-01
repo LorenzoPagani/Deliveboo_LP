@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Storage;
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -40,7 +43,7 @@ class RegisteredUserController extends Controller
             'restaurant_name' => ['required', 'string', 'max:255'],
             'restaurant_address' => ['required', 'string', 'max:255'],
             'vat' => ['required', 'string', 'min:11', 'max:11'],
-            'restaurant_picture' => ['required', 'string'],
+            'restaurant_picture' => ["nullable", File::image()->min("1kb")->max("2mb")],
             'restaurant_description' => ['string'],
             'tags' => []
         ]);
@@ -58,7 +61,9 @@ class RegisteredUserController extends Controller
         $ristorante->name = $request->restaurant_name;
         $ristorante->address = $request->restaurant_address;
         $ristorante->vat = $request->vat;
-        $ristorante->picture = $request->restaurant_picture;
+
+        $percorso = Storage::disk("public")->put('/uploads', $request['restaurant_picture']);
+        $ristorante->picture = $percorso;
         $ristorante->description = $request->restaurant_description;
         $ristorante->save();
 
