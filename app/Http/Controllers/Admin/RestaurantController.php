@@ -8,6 +8,7 @@ use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use App\Models\Type;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -73,6 +74,14 @@ class RestaurantController extends Controller
         if (array_key_exists('types', $validated_data)) {
             $restaurant->types()->sync($validated_data['types']);
         }
+        print_r($validated_data);
+        if (array_key_exists("picture", $validated_data)) {
+            $percorso = Storage::disk("public")->put('/uploads', $validated_data['picture']);
+            $validated_data["picture"] = $percorso;
+        } else {
+            $validated_data["picture"] = $restaurant->picture;
+        }
+
         $restaurant->update($validated_data);
 
 
