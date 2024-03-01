@@ -31,6 +31,10 @@
                 <label for="picture">Picture</label>
                 <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
                     name="picture" placeholder="Enter picture " value="{{ old('picture') }}">
+                <div id="prev_box" class=" d-none">
+                    <img class=" pic-preview" id="thumb" src="#" alt="your image" />
+                    <div id="erase_prev" class="btn btn-danger">remove picture</div>
+                </div>
                 @error('picture')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

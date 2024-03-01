@@ -19,6 +19,13 @@
     color: orange;
 }
 
+.pic-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 20px;
+    border-radius: 50%;
+}
 /* 
 .btn {
     border: 1px solid orange;

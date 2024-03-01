@@ -35,7 +35,7 @@
                         @endforeach
                         </tbody>
                 </table>
-                <a class="btn bg-white" href="{{ route('admin.orders') }}" role="button">All orders...</a>
+                <a class="btn btn-success" href="{{ route('admin.orders') }}" role="button">All orders...</a>
             </div>
         </div>
     </div>
