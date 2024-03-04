@@ -21,4 +21,13 @@ class RestaurantController extends Controller
             'data' => $results
         ]);
     }
+
+    public function index_by_type(string $type_id)
+    {
+        $restaurants = Restaurant::whereRelation("types", "id", "=", $type_id)->get();
+        return response()->json([
+            'success' => true,
+            'restaurants' => $restaurants
+        ]);
+    }
 }
