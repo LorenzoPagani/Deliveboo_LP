@@ -20,15 +20,6 @@ class Dish extends Model
         return $this->belongsToMany(Order::class)->withPivot("quantity");
     }
 
-    public function ingredients()
-    {
-        return $this->belongsToMany(Ingredient::class);
-    }
-
-    public function allergens()
-    {
-        return $this->belongsToMany(Allergen::class);
-    }
     protected $fillable = [
         'name',
         'description',

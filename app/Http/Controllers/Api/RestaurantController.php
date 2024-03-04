@@ -30,4 +30,13 @@ class RestaurantController extends Controller
             'restaurants' => $restaurants
         ]);
     }
+
+    public function show(string $id)
+    {
+        $restaurant = Restaurant::with("dishes")->find($id);
+        return response()->json([
+            'success' => true,
+            'restaurant' => $restaurant
+        ]);
+    }
 }
