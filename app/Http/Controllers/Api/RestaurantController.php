@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Models\Type;
+use Illuminate\Database\Eloquent\Builder;
 
 class RestaurantController extends Controller
 {
@@ -22,9 +23,17 @@ class RestaurantController extends Controller
         ]);
     }
 
-    public function index_by_type(string $type_id)
+    public function index_by_type(Request $richiesta)
     {
-        $restaurants = Restaurant::whereRelation("types", "id", "=", $type_id)->get();
+        $types = $richiesta->input("types", []);
+        #$restaurants = Restaurant::whereRelation("types", "id", "=", $type_id)->get();
+        $query = Restaurant::with("types");
+        foreach ($types as $type) {
+            $query->whereHas("types", function (Builder $q) use ($type) {
+                $q->where("id", "=", $type);
+            });
+        }
+        $restaurants = $query->get();
         return response()->json([
             'success' => true,
             'restaurants' => $restaurants
