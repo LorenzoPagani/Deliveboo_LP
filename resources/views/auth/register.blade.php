@@ -1,6 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
+<script>
+    function check_password_match(){
+        password = document.getElementById("password").value;
+        password_conf = document.getElementById("password-confirm").value;
+        if (password != password_conf) {
+            return false; 
+        }
+        else{
+            return true;
+        }
+    }
+    function display_error(){
+        result = check_password_match()
+        if (result == false){
+            document.getElementById("password-confirm").classList.add("is-invalid");
+            document.getElementById("confirm-error").classList.add("invalid-feedback")
+            document.getElementById("confirm-error").innerHTML = '<span><strong>Password confirm does not match</strong></span>';
+        }
+        else{
+            document.getElementById("confirm-error").innerHTML = "";
+            document.getElementById("confirm-error").classList.remove("invalid-feedback")
+            document.getElementById("password-confirm").classList.remove("is-invalid");
+        }
+    }
+    function send_data(){
+        result = check_password_match()
+        if (result == true){
+            document.getElementById("form-register").submit();
+        }
+        else{
+            display_error();
+            document.getElementById("password-confirm").focus();
+        }
+    }
+</script>
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -8,7 +43,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                        <form id="form-register" method="POST" action="{{ route('register') }}" enctype="multipart/form-data" onsubmit="event.preventDefault(); send_data()">
                             @csrf
                             @if ($errors->any())
                     	        <div class="alert alert-danger">
@@ -77,7 +112,8 @@
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                    name="password_confirmation" required autocomplete="new-password" oninput="display_error()">
+                                    <div id="confirm-error"></div>
                                 </div>
                             </div>
 
@@ -170,7 +206,7 @@
 
                                 <div class="mb-4 row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary" id="register-button">
                                             {{ __('Register') }}
                                         </button>
                                     </div>
