@@ -4,6 +4,15 @@
         <h1>Edit restaurant</h1>
         <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             @method('PUT')
             <div class="form-group">
                 <label for="name">Name</label>
@@ -37,14 +46,18 @@
                 <input type="text" class="form-control" id="vat" name="vat" value="{{ $restaurant->vat }}">
             </div>
             <div class="form-group">
-                <label for="type">Categories</label>
-                <select multiple class="form-control" id="type" name="types[]">
-                    @foreach ($types as $type)
-                        <option value="{{ $type->id }}" {{ $type->id == $restaurant->type ? 'selected' : '' }}>
-                            {{ $type->name }}
-                        </option>
-                    @endforeach
-                </select>
+
+                @foreach ($types as $item)
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox"
+                            {{ collect($restaurant->types)->contains('id', $item->id) ? 'checked' : '' }} name="types[]"
+                            value="{{ $item->id }}" id="{{ $item->id }}">
+
+                        <label class="form-check-label" for="{{ $item->id }}" required>
+                            {{ $item->name }}
+                        </label>
+                    </div>
+                @endforeach
             </div>
             <button type="submit" class="btn btn-primary">Edit</button>
         </form>
