@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\DishController;
+use App\Http\Controllers\Api\RestaurantController;
+use App\Http\Controllers\Api\TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get("/restaurants", [RestaurantController::class, "index"]);
+Route::get("/restaurants/type/{type_id}", [RestaurantController::class, "index_by_type"]);
+Route::get("/restaurant/{id}", [RestaurantController::class, "show"]);
+Route::get("/dishes", [DishController::class, "index"]);
+Route::get("/types", [TypeController::class, "index"]);

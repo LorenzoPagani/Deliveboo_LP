@@ -6,6 +6,10 @@ use App\Models\Restaurant;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use Illuminate\Support\Facades\Storage;
+
+use Illuminate\Http\File;
+
 class RestaurantSeeder extends Seeder
 {
     /**
@@ -112,7 +116,14 @@ class RestaurantSeeder extends Seeder
             $newRestaurant->description = $restaurant["description"];
             $newRestaurant->vat = $restaurant["vat"];
             $newRestaurant->user_id = $restaurant["user_id"];
-            $newRestaurant->picture = $restaurant["picture"];
+
+
+            $filename = basename($restaurant["picture"]);
+            file_put_contents($filename, file_get_contents($restaurant["picture"]));
+            $percorso = Storage::disk("public")->putFile('/uploads', new File($filename));
+            unlink($filename);
+
+            $newRestaurant->picture = $percorso;
             $newRestaurant->save();
         }
     }

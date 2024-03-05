@@ -53,6 +53,9 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
+        if (Auth::user()->cannot('view', $restaurant)) {
+            abort(403, "You are not authorized to access this restaurant");
+        }
         return view('admin.restaurants.show', compact('restaurant'));
     }
 
@@ -61,6 +64,9 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
+        if (Auth::user()->cannot('update', $restaurant)) {
+            abort(403, "You are not authorized to access this restaurant");
+        }
         $types = Type::all();
         return view('admin.restaurants.edit', compact('restaurant', 'types'));
     }
@@ -70,6 +76,9 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
+        if (Auth::user()->cannot('update', $restaurant)) {
+            abort(403, "You are not authorized to access this restaurant");
+        }
         $validated_data = $request->validated();
         if (array_key_exists('types', $validated_data)) {
             $restaurant->types()->sync($validated_data['types']);
@@ -94,6 +103,9 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
+        if (Auth::user()->cannot('delete', $restaurant)) {
+            abort(403, "You are not authorized to access this restaurant");
+        }
         $restaurant->delete();
         return redirect()->route('admin.restaurants.index');
     }
