@@ -8,7 +8,7 @@
                         <h3>{{ $dish->name }}</h3>
                     </div>
                     <div class="card-body">
-                        <img class="w-50 mb-2" src="{{ $dish->picture }}" alt="photo">
+                        <img class="w-50 mb-2" src="{{ asset('storage/' . $dish->picture) }}" alt="photo">
                         <div class="card-header rounded">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">{{ $dish->description }}</li>
