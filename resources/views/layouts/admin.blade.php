@@ -73,28 +73,71 @@
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     <div class="container-fluid p-2 d-flex justify-content-between align-items-center">
                         <h1>@yield('title')</h1>
-                        <div class="dropdown">
-                            <i class="fa-solid fa-user dropdown-toggle" data-bs-toggle="dropdown"
-                                aria-expanded="false"></i>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <p class="ps-3 fs-6">
-                                        {{ auth()->user()->name }}
-                                    </p>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item link-entry" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        class="d-none">
-                                        @csrf
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>
+                        <div class="d-flex fixed-top justify-content-end m-4">
+                            <div class="d-md-none dropdown me-4">
+                                <i class="fa-solid fa-bars fa-lg dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false"></i>
 
+
+                                <ul class="dropdown-menu">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link m-2 rounded" href="/">
+                                            <i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link m-2 rounded {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-orange text-white' : '' }}"
+                                            href="{{ route('admin.dashboard') }}">
+                                            <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link m-2 rounded {{ Route::currentRouteName() == 'admin.restaurants.index' ? 'bg-orange text-white' : '' }}"
+                                            href="{{ route('admin.restaurants.index') }}">
+                                            <i class="fa-solid fa-building"></i> Restaurant
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link m-2 rounded {{ Route::currentRouteName() == 'admin.orders' ? 'bg-orange text-white' : '' }}"
+                                            href="{{ route('admin.orders') }}">
+                                            <i class="fa-solid fa-book"></i> Orders
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link m-2 rounded {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-orange text-white' : '' }}"
+                                            href="{{ route('admin.dishes.index') }}">
+                                            <i class="fa-solid fa-utensils fa-lg fa-fw"></i> Dishes
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                            <div class="dropdown">
+                                <i class="fa-solid fa-user dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false"></i>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <p class="ps-3 fs-6">
+                                            {{ auth()->user()->name }}
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item link-entry" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     @yield('content')
                 </main>
