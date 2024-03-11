@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container">
-        <h1>Edit dish</h1>
+        <h1>Modifica piatto</h1>
         <form runat="server" action="{{ route('admin.dishes.update', $dish->id) }}" method="post"
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group">
-                <label for="name">Name*</label>
+                <label for="name">Nome*</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                     value="{{ old('name') ?? $dish->name }}">
                 @error('name')
@@ -17,7 +17,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="picture">Picture</label>
+                <label for="picture">Immagine</label>
                 <input type="file" accept="image/*" class="form-control @error('picture') is-invalid @enderror"
                     id="picture" name="picture" value="{{ old('picture') ?? $dish->picture }}"
                     placeholder="Enter picture URL">
@@ -32,7 +32,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="description">Description*</label>
+                <label for="description">Descrizione*</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
                     rows="3">{{ $dish->description }}</textarea>
                 @error('description')
@@ -42,7 +42,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="ingredients">Ingredients*</label>
+                <label for="ingredients">Ingredienti*</label>
                 <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients"
                     cols="30" rows="10" placeholder="enter ingredients">
                     {{ $dish->ingredients }}
@@ -54,7 +54,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="price">Price*</label>
+                <label for="price">Prezzo*</label>
                 <input type="number" step=".01" class="form-control @error('price') is-invalid @enderror"
                     id="price" name="price" value="{{ old('price') ?? $dish->price }}">
                 @error('price')
@@ -64,10 +64,10 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="visible">Visibility</label>
+                <label for="visible">Visibilità</label>
                 <select class="form-control @error('price') is-invalid @enderror" id="visible" name="visible">
-                    <option value="1" {{ $dish->visible == 1 ? 'selected' : '' }}>Visible</option>
-                    <option value="0" {{ $dish->visible == 0 ? 'selected' : '' }}>Not visible</option>
+                    <option value="1" {{ $dish->visible == 1 ? 'selected' : '' }}>Visibile</option>
+                    <option value="0" {{ $dish->visible == 0 ? 'selected' : '' }}>Non visibile</option>
                 </select>
                 @error('visible')
                     <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
                     </span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Edit</button>
+            <button type="submit" class="btn btn-primary">Modifica</button>
         </form>
     </div>
 @endsection

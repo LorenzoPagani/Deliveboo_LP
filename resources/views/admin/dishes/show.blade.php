@@ -11,18 +11,18 @@
                         <img class="w-50 mb-2" src="{{ asset('storage/' . $dish->picture) }}" alt="photo">
                         <div class="card-header rounded">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Description: {{ $dish->description }}</li>
-                                <li class="list-group-item">Ingredients: {{ $dish->ingredients }}</li>
+                                <li class="list-group-item">Descrizione: {{ $dish->description }}</li>
+                                <li class="list-group-item">Ingredienti: {{ $dish->ingredients }}</li>
                                 <li class="list-group-item">
                                     @if ($dish->visible == 1)
-                                        <p class="text-success">Visible</p>
+                                        <p class="text-success">Visibile</p>
                                     @else
-                                        <p class="text-danger">Not visible</p>
+                                        <p class="text-danger">Non visibile</p>
                                     @endif
                                 </li>
                                 <li class="list-group-item"><a class="btn btn-primary"
-                                        href="{{ route('admin.dishes.edit', $dish->id) }}">edit</a>
-                                    <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">Back to Menù</a>
+                                        href="{{ route('admin.dishes.edit', $dish->id) }}">Modifica</a>
+                                    <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">Torna al Menù</a>
                                 </li>
                             </ul>
                         </div>

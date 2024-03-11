@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section("title")
-Orders
+Ordini
 @endsection
 
 @section('content')
@@ -8,13 +8,13 @@ Orders
         <table class="table">
             <thead>
                 <tr>
-                    <th>Order ID</th>
-                    <th>Name</th>
-                    <th>Order date</th>
-                    <th>Order email</th>
-                    <th>Order address</th>
-                    <th>Order total</th>
-                    <th>Order details</th>
+                    <th>ID Ordine</th>
+                    <th>Nome</th>
+                    <th>Data dell'ordine</th>
+                    <th>Indirizzo E-mail</th>
+                    <th>Indirizzo di consegna</th>
+                    <th>Totale ordine</th>
+                    <th>Dettagli</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,7 +25,7 @@ Orders
                         <td>{{ $order->date }}</td>
                         <td>{{ $order->email }}</td>
                         <td>{{ $order->address }}</td>
-                        <td>{{ $order->total }}</td>
+                        <td>€ {{ $order->total }}</td>
                         <td>
                             <ul>
                                 @foreach ($order->dishes as $dish)

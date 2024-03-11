@@ -48,19 +48,19 @@
                             <li class="nav-item">
                                 <a class="nav-link mt-2 rounded {{ Route::currentRouteName() == 'admin.restaurants.index' ? 'bg-orange text-white' : '' }}"
                                     href="{{ route('admin.restaurants.index') }}">
-                                    <i class="fa-solid fa-building"></i> Restaurant
+                                    <i class="fa-solid fa-building"></i> Ristorante
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mt-2 rounded {{ Route::currentRouteName() == 'admin.orders' ? 'bg-orange text-white' : '' }}"
                                     href="{{ route('admin.orders') }}">
-                                    <i class="fa-solid fa-book"></i> Orders
+                                    <i class="fa-solid fa-book"></i> Ordini
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mt-2 rounded {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-orange text-white' : '' }}"
                                     href="{{ route('admin.dishes.index') }}">
-                                    <i class="fa-solid fa-utensils fa-lg fa-fw"></i> Dishes
+                                    <i class="fa-solid fa-utensils fa-lg fa-fw"></i> Piatti
                                 </a>
                             </li>
 
@@ -96,19 +96,19 @@
                                     <li class="nav-item">
                                         <a class="nav-link m-2 rounded {{ Route::currentRouteName() == 'admin.restaurants.index' ? 'bg-orange text-white' : '' }}"
                                             href="{{ route('admin.restaurants.index') }}">
-                                            <i class="fa-solid fa-building"></i> Restaurant
+                                            <i class="fa-solid fa-building"></i> Ristorante
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link m-2 rounded {{ Route::currentRouteName() == 'admin.orders' ? 'bg-orange text-white' : '' }}"
                                             href="{{ route('admin.orders') }}">
-                                            <i class="fa-solid fa-book"></i> Orders
+                                            <i class="fa-solid fa-book"></i> Ordini
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link m-2 rounded {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-orange text-white' : '' }}"
                                             href="{{ route('admin.dishes.index') }}">
-                                            <i class="fa-solid fa-utensils fa-lg fa-fw"></i> Dishes
+                                            <i class="fa-solid fa-utensils fa-lg fa-fw"></i> Piatti
                                         </a>
                                     </li>
 

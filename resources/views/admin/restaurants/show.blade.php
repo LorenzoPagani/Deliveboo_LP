@@ -16,19 +16,19 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">{{ $restaurant->address }}</li>
                                 <li class="list-group-item">{{ $restaurant->description }}</li>
-                                <li class="list-group-item"> Categories: @if ($restaurant->types->isNotEmpty())
+                                <li class="list-group-item"> Categorie: @if ($restaurant->types->isNotEmpty())
                                         @foreach ($restaurant->types as $type)
                                             {{ $type->name }}
                                         @endforeach
                                     @else
-                                        none
+                                        Nessuna
                                     @endif
                                 </li>
-                                <li class="list-group-item">VAT: {{ $restaurant->vat }}</li>
+                                <li class="list-group-item">P.IVA: {{ $restaurant->vat }}</li>
 
                                 <li class="list-group-item"><a class="btn btn-primary"
-                                        href="{{ route('admin.restaurants.edit', $restaurant->id) }}">Edit</a>
-                                    <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">View dishes</a>
+                                        href="{{ route('admin.restaurants.edit', $restaurant->id) }}">Modifica</a>
+                                    <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">Vedi i piatti</a>
 
                                 </li>
                             </ul>

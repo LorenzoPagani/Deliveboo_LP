@@ -8,15 +8,15 @@
     <div class="container-fluid mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8 rounded d-flex flex-column align-items-center table-responsive">
-                <h2>Last orders:</h2>
+                <h2>Ultimi ordini:</h2>
                 <table class="table align-middle">
                     <thead>
                         <tr>
-                            <th scope="col">Date</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Order details</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Indirizzo di consegna</th>
+                            <th scope="col">Totale</th>
+                            <th scope="col">Dettagli dell'ordine</th>
                         </tr>
                         @foreach ($orders as $item)
                             <tr>
@@ -35,7 +35,7 @@
                         @endforeach
                         </tbody>
                 </table>
-                <a class="btn btn-success" href="{{ route('admin.orders') }}" role="button">All orders...</a>
+                <a class="btn btn-success" href="{{ route('admin.orders') }}" role="button">Tutti gli ordini...</a>
             </div>
         </div>
     </div>

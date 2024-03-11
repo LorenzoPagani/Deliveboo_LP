@@ -1,10 +1,12 @@
 @extends('layouts.admin')
+
+@section('title')
+Il tuo Ristorante
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 text-center">
-                <h1>Your Restaurant</h1>
-            </div>
             <div class="col-12 col-lg-6">
                 @foreach ($restaurants as $restaurant)
                     <div class="card mt-2">
@@ -19,7 +21,7 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">{{ $restaurant->address }}</li>
                                     <li class="list-group-item">{{ $restaurant->description }}</li>
-                                    <li class="list-group-item"> Categories: @if ($restaurant->types->isNotEmpty())
+                                    <li class="list-group-item"> Categorie: @if ($restaurant->types->isNotEmpty())
                                             @foreach ($restaurant->types as $type)
                                                 {{ $type->name }}
                                             @endforeach
@@ -27,11 +29,11 @@
                                             none
                                         @endif
                                     </li>
-                                    <li class="list-group-item">VAT: {{ $restaurant->vat }}</li>
+                                    <li class="list-group-item">P.IVA: {{ $restaurant->vat }}</li>
 
                                     <li class="list-group-item text-center"><a class="btn btn-primary"
-                                            href="{{ route('admin.restaurants.edit', $restaurant->id) }}">Edit</a>
-                                        <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">View dishes</a>
+                                            href="{{ route('admin.restaurants.edit', $restaurant->id) }}">Modifica</a>
+                                        <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">Vedi i piatti</a>
                                         {{-- capiamo se aggiungere dettagli o eliminare la show --}}
                                         {{--  <a class="btn btn-primary"
                                             href="{{ route('admin.restaurants.show', $restaurant->id) }}"

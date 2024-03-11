@@ -1,13 +1,15 @@
 @extends('layouts.admin')
+
+@section('title')
+Tutti i piatti
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 text-center">
-                <h1>All Dishes</h1>
-            </div>
             <div class="col-12">
 
-                <a class="btn btn-success" href="{{ route('admin.dishes.create') }}">add new dish</a>
+                <a class="btn btn-success" href="{{ route('admin.dishes.create') }}">Aggiungi un nuovo piatto</a>
             </div>
             @foreach ($dishes as $dish)
                 <div class="col-12 col-lg-6">
@@ -24,16 +26,16 @@
                                     <li class="list-group-item">€{{ $dish->price }}</li>
                                     <li class="list-group-item text-center">
                                         @if ($dish->visible == 1)
-                                            <p class="text-success">Visible</p>
+                                            <p class="text-success">Visibile</p>
                                         @else
-                                            <p class="text-danger">Not visible</p>
+                                            <p class="text-danger">Non visibile</p>
                                         @endif
                                     </li>
                                     <li class="list-group-item d-flex justify-content-center gap-1">
                                         <a class="btn btn-primary"
-                                            href="{{ route('admin.dishes.edit', $dish->id) }}">Edit</a>
+                                            href="{{ route('admin.dishes.edit', $dish->id) }}">Modifica</a>
                                         <a class="btn btn-primary" href="{{ route('admin.dishes.show', $dish->id) }}"
-                                            class="btn btn-primary">Details</a>
+                                            class="btn btn-primary">Dettagli</a>
                                     </li>
                                     <li class="list-group-item text-center">
                                         <form id="deleteForm" class="delete-btn" style="display:inline-block" method="POST"
@@ -41,7 +43,7 @@
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <button type="submit" class="form-control btn btn-danger"
-                                                data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
+                                                data-bs-toggle="modal" data-bs-target="#deleteModal">Elimina</a>
                                         </form>
                                     </li>
 
