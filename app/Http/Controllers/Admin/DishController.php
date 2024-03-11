@@ -78,13 +78,16 @@ class DishController extends Controller
             abort(403, "You are not authorized to access this dish");
         }
         $validati = $request->validated();
-        if ($request['picture'])
-            $percorso =  Storage::disk("public")->put('/uploads', $request['picture']);
-        else
-            $percorso = null;
-
-        $validati["picture"] = $percorso;
+        if (array_key_exists("picture", $validati)) {
+            $percorso = Storage::disk("public")->put('/uploads', $validati['picture']);
+            $validati["picture"] = $percorso;
+        } else {
+            $validati["picture"] = $dish->picture;
+        }
         $dish->update($validati);
+        $dish->picture = $validati["picture"];
+        $dish->save();
+
         return redirect()->route('admin.dishes.index');
     }
 

@@ -26,7 +26,7 @@ class UpdateRestaurantRequest extends FormRequest
             'name' => 'required|min:2|max:150',
             'address' => 'required|min:5|max:150',
             'description' => 'required|min:5|max:1000',
-            'vat' => 'required, unique:App\Models\Restaurant:vat',
+            'vat' => 'required',
             "picture" => ["nullable", File::image()->min("1kb")->max("2mb")],
             'user_id' => 'exists:users,id',
             'types' => 'exists:types,id'

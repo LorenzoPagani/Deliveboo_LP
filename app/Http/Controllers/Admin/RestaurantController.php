@@ -86,13 +86,14 @@ class RestaurantController extends Controller
         if (array_key_exists("picture", $validated_data)) {
             $percorso = Storage::disk("public")->put('/uploads', $validated_data['picture']);
             $validated_data["picture"] = $percorso;
+            error_log(var_export($validated_data, true));
         } else {
             $validated_data["picture"] = $restaurant->picture;
         }
 
         $restaurant->update($validated_data);
-
-
+        $restaurant->picture = $validated_data["picture"];
+        $restaurant->save();
 
         return redirect()->route('admin.restaurants.show', $restaurant->id);
     }
