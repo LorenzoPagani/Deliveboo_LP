@@ -83,7 +83,6 @@ class RestaurantController extends Controller
         if (array_key_exists('types', $validated_data)) {
             $restaurant->types()->sync($validated_data['types']);
         }
-        print_r($validated_data);
         if (array_key_exists("picture", $validated_data)) {
             $percorso = Storage::disk("public")->put('/uploads', $validated_data['picture']);
             $validated_data["picture"] = $percorso;
