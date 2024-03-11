@@ -62,8 +62,12 @@ class RegisteredUserController extends Controller
         $ristorante->address = $request->restaurant_address;
         $ristorante->vat = $request->vat;
 
-        $percorso = Storage::disk("public")->put('/uploads', $request['restaurant_picture']);
-        $ristorante->picture = $percorso;
+        if ($request["restaurant_picture"] != null) {
+            $percorso = Storage::disk("public")->put('/uploads', $request['restaurant_picture']);
+            $ristorante->picture = $percorso;
+        } else {
+            $ristorante->picture = "";
+        }
         $ristorante->description = $request->restaurant_description;
         $ristorante->save();
 
