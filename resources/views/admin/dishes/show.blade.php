@@ -11,8 +11,8 @@
                         <img class="w-50 mb-2" src="{{ asset('storage/' . $dish->picture) }}" alt="photo">
                         <div class="card-header rounded">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">{{ $dish->description }}</li>
-                                <li class="list-group-item">{{ $dish->ingredients }}</li>
+                                <li class="list-group-item">Description: {{ $dish->description }}</li>
+                                <li class="list-group-item">Ingredients: {{ $dish->ingredients }}</li>
                                 <li class="list-group-item">
                                     @if ($dish->visible == 1)
                                         <p class="text-success">Visible</p>

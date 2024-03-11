@@ -22,7 +22,6 @@
                             <div class="w-75 text-center rounded">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">€{{ $dish->price }}</li>
-                                    <li class="list-group-item">{{ readMore($dish->description) }}</li>
                                     <li class="list-group-item text-center">
                                         @if ($dish->visible == 1)
                                             <p class="text-success">Visible</p>
@@ -75,7 +74,7 @@
             {
                 $description = substr($description, 0, $chars);
                 $description = substr($description, 0, strrpos($description, ' '));
-                $description = $description . "...";
+                $description = $description . '...';
                 return $description;
             }
         @endphp
