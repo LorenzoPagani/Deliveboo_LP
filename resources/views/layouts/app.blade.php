@@ -27,7 +27,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo">
-                        <span>LOGO</span>
+                        <img class="rounded" style="height: 60px;" src="{{ Vite::asset('resources/images/deliveboo_logo.jpeg') }}">
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
