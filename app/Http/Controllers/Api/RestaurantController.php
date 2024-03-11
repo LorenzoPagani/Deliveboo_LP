@@ -26,6 +26,12 @@ class RestaurantController extends Controller
     public function index_by_type(Request $richiesta)
     {
         $types = $richiesta->input("types", []);
+        if (count($types) == 0) {
+            return response()->json([
+                "success" => true,
+                "restaurants" => []
+            ]);
+        }
         #$restaurants = Restaurant::whereRelation("types", "id", "=", $type_id)->get();
         $query = Restaurant::with("types");
         foreach ($types as $type) {
