@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'restaurant_name' => ['required', 'string', 'max:255'],
             'restaurant_address' => ['required', 'string', 'max:255'],
-            'vat' => ['required', 'string', 'min:11', 'max:11'],
+            'vat' => ['required', 'string', 'min:11', 'max:11', "unique:App\Models\Restaurant,vat"],
             'restaurant_picture' => ["nullable", File::image()->min("1kb")->max("2mb")],
             'restaurant_description' => ['string'],
             'tags' => ['required']
